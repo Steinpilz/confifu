@@ -1,0 +1,15 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "Confifu.Samples.Library Class Library",
+  "authors": [ "Ivan Bianko" ],
+  "tags": [ ".net confifu samsles configuration" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "net451": { }
+  },
+  "dependencies": {
+    "Confifu.Abstractions": {"target": "project"}
+  }
+}

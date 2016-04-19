@@ -1,0 +1,36 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.5.1": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      }
+    },
+    ".NETFramework,Version=v4.5.1/win7-x86": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      }
+    },
+    ".NETFramework,Version=v4.5.1/win7-x64": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      }
+    }
+  },
+  "libraries": {
+    "Confifu.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../../src/Confifu.Abstractions/project.json"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "Confifu.Abstractions "
+    ],
+    ".NETFramework,Version=v4.5.1": []
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.5.1": {
+      "Confifu/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null
+        }
+      },
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Confifu.Samples.Library/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.1/win7-x86": {
+      "Confifu/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null
+        }
+      },
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Confifu.Samples.Library/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.1/win7-x64": {
+      "Confifu/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null
+        }
+      },
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Confifu.Samples.Library/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Confifu/1.0.0": {
+      "type": "project",
+      "path": "../../src/Confifu/project.json"
+    },
+    "Confifu.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../../src/Confifu.Abstractions/project.json"
+    },
+    "Confifu.Samples.Library/1.0.0": {
+      "type": "project",
+      "path": "../Confifu.Samples.Library/project.json"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "Confifu.Samples.Library ",
+      "Confifu "
+    ],
+    ".NETFramework,Version=v4.5.1": []
+  }
+}

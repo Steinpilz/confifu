@@ -8,6 +8,7 @@
 
   "frameworks": {
     "net451": { },
+    "dnx451": { },
     "dotnet5.4": {
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",
@@ -19,6 +20,6 @@
     }
   },
   "dependencies": {
-    "Confifu.Abstractions": {"target": "project"}
+    "Confifu.Abstractions": { "target": "project" }
   }
 }

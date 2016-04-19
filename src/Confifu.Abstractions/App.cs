@@ -9,7 +9,7 @@ namespace Confifu.Abstractions
             get
             {
                 if (_config == null)
-                    throw new InvalidOperationException("Env.Config should be set prior to its usage");
+                    throw new InvalidOperationException("Env.Get should be set prior to its usage");
                 return _config;
             }
             set { _config = value; }
@@ -17,6 +17,11 @@ namespace Confifu.Abstractions
 
         private static IAppConfig _config;
 
-        public static IEnvironmentVariables EnvVars => Config.GetEnvironmentVariables();
+        public static IConfigVariables Vars => Config.GetConfigVariables();
+
+        public static T GetConfig<T>(string key)
+        {
+            return Config.Get<T>(key);
+        }
     }
 }

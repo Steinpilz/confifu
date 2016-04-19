@@ -1,0 +1,16 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "Confifu.Samples.App Class Library",
+  "authors": [ "Ivan Bianko" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "net451": { }
+  },
+  "dependencies": {
+    "Confifu.Samples.Library": { "target": "project" },
+    "Confifu": { "target": "project"}
+  }
+}

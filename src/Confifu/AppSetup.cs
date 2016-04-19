@@ -8,7 +8,7 @@ namespace Confifu
     {
         public const string CSharpEnvKey = "CSHARP_ENV";
 
-        protected IEnvironmentVariables Env { get;}
+        protected IConfigVariables Env { get; }
 
         private readonly AppConfig _appConfig;
         protected IAppConfig AppConfig => _appConfig;
@@ -16,11 +16,11 @@ namespace Confifu
         private List<AppSetupAction> SetupActions { get; } = new List<AppSetupAction>();
         private string CSharpEnv => Env[CSharpEnvKey];
 
-        protected AppSetup(IEnvironmentVariables env)
+        protected AppSetup(IConfigVariables env)
         {
             Env = env;
             _appConfig = new AppConfig();
-            _appConfig.SetEnvironmentVariables(env);
+            _appConfig.SetConfigVariables(env);
         }
 
         public void Setup()
@@ -30,7 +30,7 @@ namespace Confifu
             {
                 if (setupAction.Environment == null
                     || string.Compare(setupAction.Environment, csharpEnv,
-                        StringComparison.InvariantCultureIgnoreCase) == 0)
+                        StringComparison.CurrentCultureIgnoreCase) == 0)
                     setupAction.Action();
             }
             _appConfig.MarkSetupComplete();
