@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5.1": {
-      "Confifu.Abstractions/0.1.0": {
+      "Confifu.Abstractions/0.2.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -27,7 +27,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x86": {
-      "Confifu.Abstractions/0.1.0": {
+      "Confifu.Abstractions/0.2.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -51,7 +51,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x64": {
-      "Confifu.Abstractions/0.1.0": {
+      "Confifu.Abstractions/0.2.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -76,7 +76,7 @@
     }
   },
   "libraries": {
-    "Confifu.Abstractions/0.1.0": {
+    "Confifu.Abstractions/0.2.0": {
       "type": "project",
       "path": "../../src/Confifu.Abstractions/project.json"
     },

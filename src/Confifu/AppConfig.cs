@@ -35,9 +35,7 @@ namespace Confifu
         private object SafeGet(string key)
         {
             object returnValue;
-            if (_dictionary.TryGetValue(key, out returnValue))
-                return returnValue;
-            return null;
+            return _dictionary.TryGetValue(key, out returnValue) ? returnValue : null;
         }
     }
 }

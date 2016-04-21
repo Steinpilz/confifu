@@ -17,7 +17,7 @@ namespace Confifu.Abstractions
 
         private static IAppConfig _config;
 
-        public static IConfigVariables Vars => Config.GetConfigVariables();
+        public static ConfigVariablesWrapper Vars => new ConfigVariablesWrapper(Config.GetConfigVariables());
 
         public static T GetConfig<T>(string key)
         {

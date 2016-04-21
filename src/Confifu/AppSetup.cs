@@ -12,7 +12,7 @@ namespace Confifu
         protected IConfigVariables Env { get; }
 
         private readonly AppConfig _appConfig;
-        private ServiceCollection _serviceCollection;
+        private readonly ServiceCollection _serviceCollection;
 
         protected IAppConfig AppConfig => _appConfig;
 
@@ -21,6 +21,8 @@ namespace Confifu
 
         protected AppSetup(IConfigVariables env)
         {
+            if (env == null) throw new ArgumentNullException(nameof(env));
+
             Env = env;
             _appConfig = new AppConfig();
             _appConfig.SetConfigVariables(env);

@@ -2,7 +2,7 @@
 
 namespace Confifu
 {
-    class AppSetupAction
+    internal class AppSetupAction
     {
         public AppSetupAction(Action action, string environment = null)
         {

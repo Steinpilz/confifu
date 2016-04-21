@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "Confifu/0.1.0": {
+      "Confifu/0.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -286,7 +286,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "Confifu/0.1.0": {
+      "Confifu/0.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -569,7 +569,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "Confifu/0.1.0": {
+      "Confifu/0.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -853,7 +853,7 @@
     }
   },
   "libraries": {
-    "Confifu/0.1.0": {
+    "Confifu/0.2.0": {
       "type": "project",
       "path": "../../src/Confifu/project.json"
     },
