@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using Confifu.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Confifu
 {
     public class AppSetup
     {
-        public const string CSharpEnvKey = "CSHARP_ENV";
+        public const string CSharpEnvKey = "CSharpEnv";
 
         protected IConfigVariables Env { get; }
 
         private readonly AppConfig _appConfig;
+        private ServiceCollection _serviceCollection;
+
         protected IAppConfig AppConfig => _appConfig;
 
         private List<AppSetupAction> SetupActions { get; } = new List<AppSetupAction>();
@@ -21,6 +24,9 @@ namespace Confifu
             Env = env;
             _appConfig = new AppConfig();
             _appConfig.SetConfigVariables(env);
+
+            _serviceCollection = new ServiceCollection();
+            _appConfig.SetServiceCollection(_serviceCollection);
         }
 
         public void Setup()
@@ -34,6 +40,13 @@ namespace Confifu
                     setupAction.Action();
             }
             _appConfig.MarkSetupComplete();
+            App.Config = _appConfig;
+        }
+
+        protected void LocateServices(Func<IServiceCollection, IServiceProvider> locateAction)
+        {
+            var serviceProvider = locateAction(_serviceCollection);
+            _appConfig.SetServiceProvider(serviceProvider);
         }
 
         protected void Common(Action action)

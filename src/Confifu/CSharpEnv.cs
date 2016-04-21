@@ -5,5 +5,6 @@
         public const string Development = "development";
         public const string Test = "test";
         public const string Production = "production";
+        public const string Staging = "staging";
     }
 }

@@ -9,7 +9,7 @@ namespace Confifu.Abstractions
             get
             {
                 if (_config == null)
-                    throw new InvalidOperationException("Env.Get should be set prior to its usage");
+                    throw new InvalidOperationException("App.Config should be set prior to its usage");
                 return _config;
             }
             set { _config = value; }
