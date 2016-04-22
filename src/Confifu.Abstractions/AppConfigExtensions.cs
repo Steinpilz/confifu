@@ -8,6 +8,7 @@ namespace Confifu.Abstractions
         public const string ConfigVariablesKey = "ConfigVariables";
         public const string ServiceCollectionKey = "ServiceCollection";
         public const string ServiceProviderKey = "ServiceProvider";
+        public const string AppRunnerKey = "AppRunner";
 
         public static T Get<T>(this IAppConfig appConfig, string key)
         {
@@ -46,6 +47,21 @@ namespace Confifu.Abstractions
             IConfigVariables configVariables)
         {
             appConfig[ConfigVariablesKey] = configVariables;
+        }
+
+        public static IAppRunner GetAppRunner(this IAppConfig appConfig)
+        {
+            return appConfig.Get<IAppRunner>(AppRunnerKey);
+        }
+
+        public static void SetAppRunner(this IAppConfig appConfig, IAppRunner appRunner)
+        {
+            appConfig[AppRunnerKey] = appRunner;
+        }
+
+        public static void WrapAppRunner(this IAppConfig appConfig, Func<IAppRunner, IAppRunner> wrapFunc)
+        {
+            appConfig.SetAppRunner(wrapFunc(appConfig.GetAppRunner()));
         }
     }
 }

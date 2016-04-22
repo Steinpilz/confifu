@@ -15,6 +15,7 @@ namespace Confifu
         private readonly ServiceCollection _serviceCollection;
 
         protected IAppConfig AppConfig => _appConfig;
+        protected IServiceCollection ServiceCollection => _serviceCollection;
 
         private List<AppSetupAction> SetupActions { get; } = new List<AppSetupAction>();
         private string CSharpEnv => Env[CSharpEnvKey];
@@ -31,7 +32,7 @@ namespace Confifu
             _appConfig.SetServiceCollection(_serviceCollection);
         }
 
-        public void Setup()
+        public AppSetup Setup()
         {
             var csharpEnv = CSharpEnv;
             foreach (var setupAction in SetupActions)
@@ -43,11 +44,18 @@ namespace Confifu
             }
             _appConfig.MarkSetupComplete();
             App.Config = _appConfig;
+            return this;
         }
 
-        protected void LocateServices(Func<IServiceCollection, IServiceProvider> locateAction)
+        public AppSetup Run()
         {
-            var serviceProvider = locateAction(_serviceCollection);
+            var appRunner = _appConfig.GetAppRunner();
+            appRunner?.Run();
+            return this;
+        }
+
+        protected void SetServiceProvider(IServiceProvider serviceProvider)
+        {
             _appConfig.SetServiceProvider(serviceProvider);
         }
 
