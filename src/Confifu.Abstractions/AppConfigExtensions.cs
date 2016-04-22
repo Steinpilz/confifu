@@ -49,19 +49,20 @@ namespace Confifu.Abstractions
             appConfig[ConfigVariablesKey] = configVariables;
         }
 
-        public static IAppRunner GetAppRunner(this IAppConfig appConfig)
+        public static Action GetAppRunner(this IAppConfig appConfig)
         {
-            return appConfig.Get<IAppRunner>(AppRunnerKey);
+            return appConfig.Get<Action>(AppRunnerKey);
         }
 
-        public static void SetAppRunner(this IAppConfig appConfig, IAppRunner appRunner)
+        public static void SetAppRunner(this IAppConfig appConfig, Action appRunner)
         {
             appConfig[AppRunnerKey] = appRunner;
         }
 
-        public static void WrapAppRunner(this IAppConfig appConfig, Func<IAppRunner, IAppRunner> wrapFunc)
+        public static IAppConfig WrapAppRunner(this IAppConfig appConfig, Func<Action, Action> wrapFunc)
         {
             appConfig.SetAppRunner(wrapFunc(appConfig.GetAppRunner()));
+            return appConfig;
         }
     }
 }

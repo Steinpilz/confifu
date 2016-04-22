@@ -49,8 +49,7 @@ namespace Confifu
 
         public AppSetup Run()
         {
-            var appRunner = _appConfig.GetAppRunner();
-            appRunner?.Run();
+            _appConfig.GetAppRunner()?.Invoke();
             return this;
         }
 
