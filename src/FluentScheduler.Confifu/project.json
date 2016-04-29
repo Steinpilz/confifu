@@ -1,0 +1,26 @@
+﻿{
+  "version": "0.1.0-*",
+  "description": "Confifu implementation for FluentScheduler library",
+  "authors": [ "ivanbianko" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "dnx451": { },
+    "net451": { },
+    "dotnet5.4": {
+      "dependencies": {
+        "Microsoft.CSharp": "4.0.1-beta-23516",
+        "System.Collections": "4.0.11-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Threading": "4.0.11-beta-23516"
+      }
+    }
+  },
+  "dependencies": {
+    "Confifu.Abstractions": { "target": "project" },
+    "FluentScheduler": "4.0.1"
+  }
+}
