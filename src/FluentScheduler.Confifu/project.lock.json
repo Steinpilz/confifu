@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "Confifu.Abstractions/0.6.0": {
+      "Confifu.Abstractions/0.7.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -36,7 +36,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1": {
-      "Confifu.Abstractions/0.6.0": {
+      "Confifu.Abstractions/0.7.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -69,7 +69,7 @@
       }
     },
     ".NETPlatform,Version=v5.4": {
-      "Confifu.Abstractions/0.6.0": {
+      "Confifu.Abstractions/0.7.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -405,7 +405,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "Confifu.Abstractions/0.6.0": {
+      "Confifu.Abstractions/0.7.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -438,7 +438,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "Confifu.Abstractions/0.6.0": {
+      "Confifu.Abstractions/0.7.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -471,7 +471,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x86": {
-      "Confifu.Abstractions/0.6.0": {
+      "Confifu.Abstractions/0.7.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -504,7 +504,7 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x64": {
-      "Confifu.Abstractions/0.6.0": {
+      "Confifu.Abstractions/0.7.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -537,7 +537,7 @@
       }
     },
     ".NETPlatform,Version=v5.4/win7-x86": {
-      "Confifu.Abstractions/0.6.0": {
+      "Confifu.Abstractions/0.7.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -891,7 +891,7 @@
       }
     },
     ".NETPlatform,Version=v5.4/win7-x64": {
-      "Confifu.Abstractions/0.6.0": {
+      "Confifu.Abstractions/0.7.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -1246,7 +1246,7 @@
     }
   },
   "libraries": {
-    "Confifu.Abstractions/0.6.0": {
+    "Confifu.Abstractions/0.7.0": {
       "type": "project",
       "path": "../Confifu.Abstractions/project.json"
     },
