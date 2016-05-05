@@ -19,6 +19,7 @@ namespace Confifu
         {
             get
             {
+                if (key == null) throw new ArgumentNullException(nameof(key));
                 string ret;
                 return _vars.TryGetValue(key, out ret) ? ret : null;
             }

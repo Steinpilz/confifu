@@ -1,14 +1,17 @@
 ﻿{
   "version": "1.0.0-*",
-  "description": "Confifu implementation for FluentScheduler library",
+  "description": "Confifu.Abstractions.DependencyInjection Class Library",
   "authors": [ "ivanbianko" ],
-  "tags": [ "" ],
+  "tags": [ "confifu configuration abstractions dependency injection" ],
   "projectUrl": "",
   "licenseUrl": "",
-
+  "dependencies": {
+    "Confifu.Abstractions": { "target": "project"},
+    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
+  },
   "frameworks": {
-    "dnx451": { },
     "net451": { },
+    "dnx451": {},
     "dotnet5.4": {
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",
@@ -18,9 +21,5 @@
         "System.Threading": "4.0.11-beta-23516"
       }
     }
-  },
-  "dependencies": {
-    "Confifu.Abstractions": { "target": "project" },
-    "FluentScheduler": "4.0.1"
   }
 }

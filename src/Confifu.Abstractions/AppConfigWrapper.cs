@@ -18,8 +18,16 @@ namespace Confifu.Abstractions
 
         public object this[string key]
         {
-            get { return _appConfig[_prefix + key]; }
-            set { _appConfig[_prefix+key] = value;}
+            get
+            {
+                if (key == null) throw new ArgumentNullException(nameof(key));
+                return _appConfig[_prefix + key];
+            }
+            set
+            {
+                if (key == null) throw new ArgumentNullException(nameof(key));
+                _appConfig[_prefix+key] = value;
+            }
         }
     }
 }

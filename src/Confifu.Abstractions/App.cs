@@ -21,6 +21,7 @@ namespace Confifu.Abstractions
 
         public static T GetConfig<T>(string key)
         {
+            if (key == null) throw new ArgumentNullException(nameof(key));
             return Config.Get<T>(key);
         }
     }

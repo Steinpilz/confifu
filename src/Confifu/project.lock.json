@@ -3,10 +3,15 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5.1": {
-      "Confifu.Abstractions/0.7.0": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
+          "Confifu.Abstractions": null,
           "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
         }
       },
@@ -45,10 +50,15 @@
       }
     },
     "DNX,Version=v4.5.1": {
-      "Confifu.Abstractions/0.7.0": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
+          "Confifu.Abstractions": null,
           "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
         }
       },
@@ -87,16 +97,28 @@
       }
     },
     ".NETPlatform,Version=v5.4": {
-      "Confifu.Abstractions/0.7.0": {
+      "Confifu.Abstractions/1.0.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
           "System.Collections": "4.0.11",
           "System.Linq": "4.0.1",
           "System.Runtime": "4.0.21",
           "System.Threading": "4.0.11"
+        }
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+        "type": "project",
+        "framework": ".NETPlatform,Version=v5.4",
+        "dependencies": {
+          "Confifu.Abstractions": null,
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
         }
       },
       "Microsoft.CSharp/4.0.1-beta-23516": {
@@ -410,10 +432,15 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x86": {
-      "Confifu.Abstractions/0.7.0": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
+          "Confifu.Abstractions": null,
           "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
         }
       },
@@ -452,10 +479,15 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x64": {
-      "Confifu.Abstractions/0.7.0": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
+          "Confifu.Abstractions": null,
           "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
         }
       },
@@ -494,10 +526,15 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "Confifu.Abstractions/0.7.0": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
+          "Confifu.Abstractions": null,
           "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
         }
       },
@@ -536,10 +573,15 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "Confifu.Abstractions/0.7.0": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
+          "Confifu.Abstractions": null,
           "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
         }
       },
@@ -578,16 +620,28 @@
       }
     },
     ".NETPlatform,Version=v5.4/win7-x86": {
-      "Confifu.Abstractions/0.7.0": {
+      "Confifu.Abstractions/1.0.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
           "System.Collections": "4.0.11",
           "System.Linq": "4.0.1",
           "System.Runtime": "4.0.21",
           "System.Threading": "4.0.11"
+        }
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+        "type": "project",
+        "framework": ".NETPlatform,Version=v5.4",
+        "dependencies": {
+          "Confifu.Abstractions": null,
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
         }
       },
       "Microsoft.CSharp/4.0.1-beta-23516": {
@@ -919,16 +973,28 @@
       }
     },
     ".NETPlatform,Version=v5.4/win7-x64": {
-      "Confifu.Abstractions/0.7.0": {
+      "Confifu.Abstractions/1.0.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
           "System.Collections": "4.0.11",
           "System.Linq": "4.0.1",
           "System.Runtime": "4.0.21",
           "System.Threading": "4.0.11"
+        }
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+        "type": "project",
+        "framework": ".NETPlatform,Version=v5.4",
+        "dependencies": {
+          "Confifu.Abstractions": null,
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
         }
       },
       "Microsoft.CSharp/4.0.1-beta-23516": {
@@ -1261,9 +1327,13 @@
     }
   },
   "libraries": {
-    "Confifu.Abstractions/0.7.0": {
+    "Confifu.Abstractions/1.0.0": {
       "type": "project",
       "path": "../Confifu.Abstractions/project.json"
+    },
+    "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "type": "project",
+      "path": "../Confifu.Abstractions.DependencyInjection/project.json"
     },
     "Microsoft.CSharp/4.0.1-beta-23516": {
       "type": "package",
@@ -2464,6 +2534,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Confifu.Abstractions ",
+      "Confifu.Abstractions.DependencyInjection ",
       "Microsoft.Extensions.DependencyInjection >= 1.0.0-rc1-final"
     ],
     ".NETFramework,Version=v4.5.1": [],

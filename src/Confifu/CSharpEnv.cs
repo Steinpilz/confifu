@@ -6,5 +6,6 @@
         public const string Test = "test";
         public const string Production = "production";
         public const string Staging = "staging";
+        public const string Qa = "qa";
     }
 }

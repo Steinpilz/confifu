@@ -7,7 +7,15 @@ namespace Confifu.Abstractions
         private readonly IConfigVariables _configVariables;
         private readonly string _prefix;
 
-        public string this[string key] => _configVariables[_prefix + key];
+        public string this[string key]
+        {
+            get
+            {
+                if (key == null) throw new ArgumentNullException(nameof(key));
+
+                return _configVariables[_prefix + key];
+            }
+        }
 
         public ConfigVariablesWrapper(IConfigVariables configVariables, string prefix = "")
         {
@@ -23,6 +31,8 @@ namespace Confifu.Abstractions
 
         public ConfigVariablesWrapper AddPrefix(string prefix)
         {
+            if (prefix == null) throw new ArgumentNullException(nameof(prefix));
+
             return new ConfigVariablesWrapper(this, _prefix + prefix);
         }
     }

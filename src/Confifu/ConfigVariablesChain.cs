@@ -12,9 +12,17 @@ namespace Confifu
         public ConfigVariablesChain(IEnumerable<IConfigVariables> chain)
         {
             if (chain == null) throw new ArgumentNullException(nameof(chain));
+
             _chain = chain.ToList();
         }
 
-        public string this[string key] => _chain.Select(x => x[key]).FirstOrDefault(x => x != null);
+        public string this[string key]
+        {
+            get
+            {
+                if (key == null) throw new ArgumentNullException(nameof(key));
+                return _chain.Select(x => x[key]).FirstOrDefault(x => x != null);
+            }
+        }
     }
 }

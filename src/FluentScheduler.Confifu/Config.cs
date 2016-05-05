@@ -5,41 +5,18 @@ namespace FluentScheduler.Confifu
 {
     public static class Const
     {
-        public const string Registry = "Registry";
-        public const string RegistryConfigFunc = "RegistryConfigFunc";
-        public const string Initialized = "Initialized";
     }
 
-    public class Config
+    public class Config : LibraryConfig
     {
-        private readonly ConfigVariablesWrapper _vars;
-        private readonly IAppConfig _appConfig;
         public static Config Current => new Config(App.Config);
 
-        public Config(IAppConfig appConfig)
+        public Config(IAppConfig appConfig) : base(appConfig,  "FluentScheduler:")
         {
-            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
-            _appConfig = appConfig;
-            _vars = new ConfigVariablesWrapper(appConfig.GetConfigVariables(), "FluentScheduler:");
         }
 
-        public bool Initialized
-        {
-            get { return _appConfig.Get<bool>(Const.Initialized); }
-            set { _appConfig[Const.Initialized] = value; }
-        }
-
-        public Func<Registry> Registry
-        {
-            get { return _appConfig[Const.Registry] as Func<Registry>; } 
-            set { _appConfig[Const.Registry] = value; }
-        }
-
-        public Action<Registry> RegistryConfigFunc
-        {
-            get { return _appConfig[Const.RegistryConfigFunc] as Action<Registry>; } 
-            set { _appConfig[Const.RegistryConfigFunc] = value; }
-        }
+        public ConfigProperty<Func<Registry>> Registry => Property(() => Registry);
+        public ConfigProperty<Action<Registry>> RegistryConfigFunc => Property(() => RegistryConfigFunc);
     }
 
     public static class AppConfigExtensions
@@ -58,17 +35,17 @@ namespace FluentScheduler.Confifu
                 var lazyRegistry = new Lazy<GenericRegistry>(() =>
                 {
                     var registry = new GenericRegistry();
-                    config.RegistryConfigFunc?.Invoke(registry);
+                    config.RegistryConfigFunc.Value?.Invoke(registry);
                     return registry;
                 });
 
-                config.Registry = () => lazyRegistry.Value;
+                config.Registry.Value = () => lazyRegistry.Value;
             })
             .WrapAppRunner(runner => () =>
             {
                 runner?.Invoke();
                 var config = appConfig.Strong();
-                JobManager.Initialize(config.Registry());
+                JobManager.Initialize(config.Registry.Value());
             });
         }
 
@@ -82,8 +59,8 @@ namespace FluentScheduler.Confifu
                 .InitFluentScheduler()
                 .ConfigureStrong(config =>
             {
-                var currentConfigFunc = config.RegistryConfigFunc;
-                config.RegistryConfigFunc = registry =>
+                var currentConfigFunc = config.RegistryConfigFunc.Value;
+                config.RegistryConfigFunc.Value = registry =>
                 {
                     currentConfigFunc?.Invoke(registry);
                     configureFunc(registry);

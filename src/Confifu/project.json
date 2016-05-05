@@ -1,5 +1,5 @@
 ﻿{
-  "version": "0.7.0",
+  "version": "1.0.0",
   "description": "Confifu Class Library",
   "authors": [ "Ivan Bianko" ],
   "tags": [ ".net configu configuration" ],
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "Confifu.Abstractions": { "target": "project" },
-    "Microsoft.Extensions.DependencyInjection" : "1.0.0-rc1-final"
+    "Confifu.Abstractions.DependencyInjection": { "target": "project" },
+    "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final"
   }
 }

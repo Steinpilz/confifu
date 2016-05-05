@@ -16,8 +16,16 @@ namespace Confifu
 
         public object this[string key]
         {
-            get { return GetValue(key); }
-            set { SetValue(key, value); }
+            get
+            {
+                if (key == null) throw new ArgumentNullException(nameof(key));
+                return GetValue(key);
+            }
+            set
+            {
+                if (key == null) throw new ArgumentNullException(nameof(key));
+                SetValue(key, value);
+            }
         }
 
         private object GetValue(string key)

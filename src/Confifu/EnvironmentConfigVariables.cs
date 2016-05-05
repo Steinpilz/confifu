@@ -5,6 +5,13 @@ namespace Confifu
 {
     public class EnvironmentConfigVariables : IConfigVariables
     {
-        public string this[string key] => Environment.GetEnvironmentVariable(key);
+        public string this[string key]
+        {
+            get
+            {
+                if (key == null) throw new ArgumentNullException(nameof(key));
+                return Environment.GetEnvironmentVariable(key);
+            }
+        }
     }
 }

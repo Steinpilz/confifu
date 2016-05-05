@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Confifu.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
+using Confifu.Abstractions.DependencyInjection;
 
 namespace Confifu
 {
@@ -55,16 +56,31 @@ namespace Confifu
 
         protected void SetServiceProvider(IServiceProvider serviceProvider)
         {
+            if (serviceProvider == null) throw new ArgumentNullException(nameof(serviceProvider));
+
             _appConfig.SetServiceProvider(serviceProvider);
         }
 
         protected void Common(Action action)
         {
+            if (action == null) throw new ArgumentNullException(nameof(action));
             SetupActions.Add(new AppSetupAction(action));
+        }
+
+        protected void Environment(Action action, params string[] environments)
+        {
+            if (action == null) throw new ArgumentNullException(nameof(action));
+            if (environments == null) throw new ArgumentNullException(nameof(environments));
+
+            foreach (var env in environments)
+                Environment(env, action);
         }
 
         protected void Environment(string environment, Action action)
         {
+            if (environment == null) throw new ArgumentNullException(nameof(environment));
+            if (action == null) throw new ArgumentNullException(nameof(action));
+
             SetupActions.Add(new AppSetupAction(action, environment));
         }
     }
