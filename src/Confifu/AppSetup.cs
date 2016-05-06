@@ -43,7 +43,6 @@ namespace Confifu
                         StringComparison.CurrentCultureIgnoreCase) == 0)
                     setupAction.Action();
             }
-            _appConfig.MarkSetupComplete();
             App.Config = _appConfig;
             return this;
         }
@@ -51,6 +50,7 @@ namespace Confifu
         public AppSetup Run()
         {
             _appConfig.GetAppRunner()?.Invoke();
+            _appConfig.MarkSetupComplete();
             return this;
         }
 

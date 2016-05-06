@@ -1,17 +1,17 @@
 ﻿{
-  "version": "1.0.0-*",
+  "version": "1.0.1-*",
   "description": "Confifu.Abstractions.DependencyInjection Class Library",
   "authors": [ "ivanbianko" ],
   "tags": [ "confifu configuration abstractions dependency injection" ],
-  "projectUrl": "",
+  "projectUrl": "https://github.com/ivanbenko/confifu",
   "licenseUrl": "",
   "dependencies": {
-    "Confifu.Abstractions": { "target": "project"},
+    "Confifu.Abstractions": { "target": "project" },
     "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
   },
   "frameworks": {
     "net451": { },
-    "dnx451": {},
+    "dnx451": { },
     "dotnet5.4": {
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",

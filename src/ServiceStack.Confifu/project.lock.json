@@ -3,11 +3,11 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -97,11 +97,11 @@
       }
     },
     ".NETFramework,Version=v4.5.1": {
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/1.0.1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.0.1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -191,11 +191,11 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -285,11 +285,11 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -379,11 +379,11 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x86": {
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/1.0.1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.0.1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -473,11 +473,11 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x64": {
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/1.0.1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.0.1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -568,11 +568,11 @@
     }
   },
   "libraries": {
-    "Confifu.Abstractions/1.0.0": {
+    "Confifu.Abstractions/1.0.1": {
       "type": "project",
       "path": "../Confifu.Abstractions/project.json"
     },
-    "Confifu.Abstractions.DependencyInjection/1.0.0": {
+    "Confifu.Abstractions.DependencyInjection/1.0.1": {
       "type": "project",
       "path": "../Confifu.Abstractions.DependencyInjection/project.json"
     },

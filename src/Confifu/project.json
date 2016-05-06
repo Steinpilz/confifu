@@ -1,9 +1,9 @@
 ﻿{
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Confifu Class Library",
   "authors": [ "Ivan Bianko" ],
   "tags": [ ".net configu configuration" ],
-  "projectUrl": "",
+  "projectUrl": "https://github.com/ivanbenko/confifu",
   "licenseUrl": "",
 
   "frameworks": {
