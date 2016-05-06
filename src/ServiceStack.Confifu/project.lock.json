@@ -1,0 +1,679 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    "DNX,Version=v4.5.1": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null,
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/1.0.0-rc1-final": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "ServiceStack/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)",
+          "ServiceStack.OrmLite.SqlServer": "[3.0.0, 4.0.0)",
+          "ServiceStack.Redis": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        }
+      },
+      "ServiceStack.Common/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Text": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        }
+      },
+      "ServiceStack.OrmLite.SqlServer/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        }
+      },
+      "ServiceStack.Redis/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        }
+      },
+      "ServiceStack.Text/3.9.71": {
+        "type": "package",
+        "compile": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.1": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null,
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/1.0.0-rc1-final": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "ServiceStack/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)",
+          "ServiceStack.OrmLite.SqlServer": "[3.0.0, 4.0.0)",
+          "ServiceStack.Redis": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        }
+      },
+      "ServiceStack.Common/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Text": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        }
+      },
+      "ServiceStack.OrmLite.SqlServer/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        }
+      },
+      "ServiceStack.Redis/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        }
+      },
+      "ServiceStack.Text/3.9.71": {
+        "type": "package",
+        "compile": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        }
+      }
+    },
+    "DNX,Version=v4.5.1/win7-x86": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null,
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/1.0.0-rc1-final": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "ServiceStack/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)",
+          "ServiceStack.OrmLite.SqlServer": "[3.0.0, 4.0.0)",
+          "ServiceStack.Redis": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        }
+      },
+      "ServiceStack.Common/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Text": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        }
+      },
+      "ServiceStack.OrmLite.SqlServer/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        }
+      },
+      "ServiceStack.Redis/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        }
+      },
+      "ServiceStack.Text/3.9.71": {
+        "type": "package",
+        "compile": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        }
+      }
+    },
+    "DNX,Version=v4.5.1/win7-x64": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null,
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/1.0.0-rc1-final": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "ServiceStack/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)",
+          "ServiceStack.OrmLite.SqlServer": "[3.0.0, 4.0.0)",
+          "ServiceStack.Redis": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        }
+      },
+      "ServiceStack.Common/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Text": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        }
+      },
+      "ServiceStack.OrmLite.SqlServer/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        }
+      },
+      "ServiceStack.Redis/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        }
+      },
+      "ServiceStack.Text/3.9.71": {
+        "type": "package",
+        "compile": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.1/win7-x86": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null,
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/1.0.0-rc1-final": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "ServiceStack/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)",
+          "ServiceStack.OrmLite.SqlServer": "[3.0.0, 4.0.0)",
+          "ServiceStack.Redis": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        }
+      },
+      "ServiceStack.Common/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Text": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        }
+      },
+      "ServiceStack.OrmLite.SqlServer/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        }
+      },
+      "ServiceStack.Redis/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        }
+      },
+      "ServiceStack.Text/3.9.71": {
+        "type": "package",
+        "compile": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5.1/win7-x64": {
+      "Confifu.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1"
+      },
+      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Confifu.Abstractions": null,
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/1.0.0-rc1-final": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "ServiceStack/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)",
+          "ServiceStack.OrmLite.SqlServer": "[3.0.0, 4.0.0)",
+          "ServiceStack.Redis": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.dll": {},
+          "lib/net35/ServiceStack.ServiceInterface.dll": {}
+        }
+      },
+      "ServiceStack.Common/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Text": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Common.dll": {},
+          "lib/net35/ServiceStack.Interfaces.dll": {}
+        }
+      },
+      "ServiceStack.OrmLite.SqlServer/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.OrmLite.dll": {},
+          "lib/net35/ServiceStack.OrmLite.SqlServer.dll": {}
+        }
+      },
+      "ServiceStack.Redis/3.9.71": {
+        "type": "package",
+        "dependencies": {
+          "ServiceStack.Common": "[3.0.0, 4.0.0)"
+        },
+        "compile": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Redis.dll": {}
+        }
+      },
+      "ServiceStack.Text/3.9.71": {
+        "type": "package",
+        "compile": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        },
+        "runtime": {
+          "lib/net35/ServiceStack.Text.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Confifu.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../Confifu.Abstractions/project.json"
+    },
+    "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "type": "project",
+      "path": "../Confifu.Abstractions.DependencyInjection/project.json"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/1.0.0-rc1-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "MUKexXAsRZ55C7YZ26ShePZgBeW+6FbasxeIVmZ/BZIgiG4uw6yPOdfl9WvTaUL9SFK2sEPcYLatWmLfTpsOAA==",
+      "files": [
+        "lib/dotnet5.4/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/dotnet5.4/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net451/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netcore50/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netcore50/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0-rc1-final.nupkg",
+        "Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0-rc1-final.nupkg.sha512",
+        "Microsoft.Extensions.DependencyInjection.Abstractions.nuspec"
+      ]
+    },
+    "ServiceStack/3.9.71": {
+      "type": "package",
+      "sha512": "G6shF+9Wc8yO32vpiLCXP9zl0F2d4pDxaNmtFl4QpQMUSPdD589DRWQm9xfg/k4g2K9ANjOAAecZcAFi9SsDNQ==",
+      "files": [
+        "lib/net35/ServiceStack.dll",
+        "lib/net35/ServiceStack.ServiceInterface.dll",
+        "lib/net35/ServiceStack.xml",
+        "ServiceStack.3.9.71.nupkg",
+        "ServiceStack.3.9.71.nupkg.sha512",
+        "ServiceStack.nuspec"
+      ]
+    },
+    "ServiceStack.Common/3.9.71": {
+      "type": "package",
+      "sha512": "t1OPES9kUwtuhvVBRd9MZyOX0WgAMX2WO/mbmzBXFptofoep5vxGBBu5xg+TGeMzc9o+lA1YpOfQCZoCeMn0+g==",
+      "files": [
+        "lib/net35/ServiceStack.Common.dll",
+        "lib/net35/ServiceStack.Common.XML",
+        "lib/net35/ServiceStack.Interfaces.dll",
+        "lib/net35/ServiceStack.Interfaces.xml",
+        "lib/sl4/README.txt",
+        "lib/sl5/README.txt",
+        "lib/sl5/ServiceStack.Common.dll",
+        "lib/sl5/ServiceStack.Common.xml",
+        "lib/sl5/ServiceStack.Interfaces.dll",
+        "lib/sl5/ServiceStack.Interfaces.xml",
+        "ServiceStack.Common.3.9.71.nupkg",
+        "ServiceStack.Common.3.9.71.nupkg.sha512",
+        "ServiceStack.Common.nuspec"
+      ]
+    },
+    "ServiceStack.OrmLite.SqlServer/3.9.71": {
+      "type": "package",
+      "sha512": "SiaJwth66mZdcY8bLNbFQlJYx145+uj3MyW7jzXtrOFlpIllMFQ4gDMachF9q+7/iz8+rlfP6vJTDb286Yu6iQ==",
+      "files": [
+        "lib/net35/ServiceStack.OrmLite.dll",
+        "lib/net35/ServiceStack.OrmLite.SqlServer.dll",
+        "ServiceStack.OrmLite.SqlServer.3.9.71.nupkg",
+        "ServiceStack.OrmLite.SqlServer.3.9.71.nupkg.sha512",
+        "ServiceStack.OrmLite.SqlServer.nuspec"
+      ]
+    },
+    "ServiceStack.Redis/3.9.71": {
+      "type": "package",
+      "sha512": "+JR9xUX5Ksp5Wnd1x0EZ9O2V3f7dOiT8waQGIi0NHWUH1NVaR1js3Gl37xZHC5lqCqBwyDSsqpKRknPfMTxKtQ==",
+      "files": [
+        "lib/net35/ServiceStack.Redis.dll",
+        "lib/net35/ServiceStack.Redis.XML",
+        "ServiceStack.Redis.3.9.71.nupkg",
+        "ServiceStack.Redis.3.9.71.nupkg.sha512",
+        "ServiceStack.Redis.nuspec"
+      ]
+    },
+    "ServiceStack.Text/3.9.71": {
+      "type": "package",
+      "sha512": "+nIZF3d2o50W4/DjtfN21AzH1shaRlEiixgFISx3v5WD4WJVRd3WLmW75+SIiPOnCQAoZ+zbGX91hrBNkx+7xg==",
+      "files": [
+        "lib/net35/ServiceStack.Text.dll",
+        "lib/net35/ServiceStack.Text.XML",
+        "lib/sl4/ServiceStack.Text.dll",
+        "lib/sl4/ServiceStack.Text.xml",
+        "lib/sl4-windowsphone71/ServiceStack.Text.WP.dll",
+        "lib/sl4-windowsphone71/ServiceStack.Text.WP.XML",
+        "lib/sl5/ServiceStack.Text.dll",
+        "lib/sl5/ServiceStack.Text.XML",
+        "ServiceStack.Text.3.9.71.nupkg",
+        "ServiceStack.Text.3.9.71.nupkg.sha512",
+        "ServiceStack.Text.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "Confifu.Abstractions ",
+      "Confifu.Abstractions.DependencyInjection ",
+      "ServiceStack >= 3.9.71",
+      "ServiceStack.Common >= 3.9.71",
+      "ServiceStack.Text >= 3.9.71",
+      "ServiceStack.Redis >= 3.9.71",
+      "ServiceStack.OrmLite.SqlServer >= 3.9.71"
+    ],
+    "DNX,Version=v4.5.1": [],
+    ".NETFramework,Version=v4.5.1": []
+  }
+}

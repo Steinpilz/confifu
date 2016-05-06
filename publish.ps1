@@ -1,6 +1,6 @@
 dnu restore src
 
-$projects = @("src\Confifu","src\Confifu.Abstractions","src\Confifu.Abstractions.DependencyInjection","src\FluentScheduler.Confifu")
+$projects = @("src\Confifu","src\Confifu.Abstractions","src\Confifu.Abstractions.DependencyInjection","src\FluentScheduler.Confifu", "src\ServiceStack.Confifu")
 
 foreach($project in $projects) {
     Remove-Item .\.published -Force -Recurse

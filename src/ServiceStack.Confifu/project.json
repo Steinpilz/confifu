@@ -1,0 +1,22 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "ServiceStack.Confifu Class Library",
+  "authors": [ "ivanbianko" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "dnx451": { },
+    "net451": { },
+  },
+  "dependencies": {
+    "Confifu.Abstractions": { "target": "project" },
+    "Confifu.Abstractions.DependencyInjection": { "target": "project" },
+    "ServiceStack": "3.9.71",
+    "ServiceStack.Common": "3.9.71",
+    "ServiceStack.Text": "3.9.71",
+    "ServiceStack.Redis": "3.9.71",
+    "ServiceStack.OrmLite.SqlServer": "3.9.71"
+  }
+}
