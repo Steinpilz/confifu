@@ -115,6 +115,9 @@ namespace ServiceStack.Confifu
                 var serviceStackConfig = new ServiceStackConfig();
                 config.ServiceStackConfig.Value = () => serviceStackConfig;
 
+                appConfig.AddAppHostConfiguration(
+                    (appHost, c) => Default.ConfigureAppHost(appConfig, appHost, c));
+
                 appConfig
                     .WrapAppRunner(runner => () =>
                     {
