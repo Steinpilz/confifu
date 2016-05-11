@@ -1,14 +1,11 @@
 ﻿{
-  "version": "1.1.0-*",
-  "description": "Confifu.Abstractions.DependencyInjection Class Library",
+  "version": "1.0.0-*",
+  "description": "Confifu.Autofac Class Library",
   "authors": [ "ivanbianko" ],
-  "tags": [ "confifu configuration abstractions dependency injection" ],
-  "projectUrl": "https://github.com/ivanbenko/confifu",
+  "tags": [ "" ],
+  "projectUrl": "",
   "licenseUrl": "",
-  "dependencies": {
-    "Confifu.Abstractions": { "target": "project" },
-    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final"
-  },
+
   "frameworks": {
     "net451": { },
     "dnx451": { },
@@ -21,5 +18,9 @@
         "System.Threading": "4.0.11-beta-23516"
       }
     }
+  },
+  "dependencies": {
+    "Confifu": { "target": "project" },
+    "Autofac.Extensions.DependencyInjection": "4.0.0-rc1-177"
   }
 }

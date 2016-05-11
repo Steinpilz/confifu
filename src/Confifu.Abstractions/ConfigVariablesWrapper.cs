@@ -33,7 +33,7 @@ namespace Confifu.Abstractions
         {
             if (prefix == null) throw new ArgumentNullException(nameof(prefix));
 
-            return new ConfigVariablesWrapper(this, _prefix + prefix);
+            return new ConfigVariablesWrapper(this, prefix);
         }
     }
 }

@@ -10,16 +10,15 @@ namespace Confifu
     {
         public const string CSharpEnvKey = "CSharpEnv";
 
-        protected IConfigVariables Env { get; }
-
         private readonly AppConfig _appConfig;
         private readonly ServiceCollection _serviceCollection;
-
-        protected IAppConfig AppConfig => _appConfig;
-        protected IServiceCollection ServiceCollection => _serviceCollection;
-
+        
         private List<AppSetupAction> SetupActions { get; } = new List<AppSetupAction>();
         private string CSharpEnv => Env[CSharpEnvKey];
+
+        public IConfigVariables Env { get; }
+        public IAppConfig AppConfig => _appConfig;
+        public IServiceCollection ServiceCollection => _serviceCollection;
 
         protected AppSetup(IConfigVariables env)
         {
@@ -31,6 +30,7 @@ namespace Confifu
 
             _serviceCollection = new ServiceCollection();
             _appConfig.SetServiceCollection(_serviceCollection);
+            _appConfig.RegisterCommonServices();
         }
 
         public AppSetup Setup()
@@ -54,20 +54,20 @@ namespace Confifu
             return this;
         }
 
-        protected void SetServiceProvider(IServiceProvider serviceProvider)
+        public void SetServiceProvider(IServiceProvider serviceProvider)
         {
             if (serviceProvider == null) throw new ArgumentNullException(nameof(serviceProvider));
 
             _appConfig.SetServiceProvider(serviceProvider);
         }
 
-        protected void Common(Action action)
+        public void Common(Action action)
         {
             if (action == null) throw new ArgumentNullException(nameof(action));
             SetupActions.Add(new AppSetupAction(action));
         }
 
-        protected void Environment(Action action, params string[] environments)
+        public void Environment(Action action, params string[] environments)
         {
             if (action == null) throw new ArgumentNullException(nameof(action));
             if (environments == null) throw new ArgumentNullException(nameof(environments));
@@ -76,7 +76,7 @@ namespace Confifu
                 Environment(env, action);
         }
 
-        protected void Environment(string environment, Action action)
+        public void Environment(string environment, Action action)
         {
             if (environment == null) throw new ArgumentNullException(nameof(environment));
             if (action == null) throw new ArgumentNullException(nameof(action));

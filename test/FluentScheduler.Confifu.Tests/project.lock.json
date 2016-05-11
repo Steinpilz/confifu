@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "Confifu/1.0.0": {
+      "Confifu/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -16,7 +16,7 @@
         "type": "project",
         "framework": "DNX,Version=v4.5"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -33,7 +33,7 @@
           "lib/net40/FluentScheduler.dll": {}
         }
       },
-      "FluentScheduler.Confifu/1.0.0": {
+      "FluentScheduler.Confifu/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -309,7 +309,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "Confifu/1.0.0": {
+      "Confifu/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -322,7 +322,7 @@
         "type": "project",
         "framework": "DNX,Version=v4.5"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -339,7 +339,7 @@
           "lib/net40/FluentScheduler.dll": {}
         }
       },
-      "FluentScheduler.Confifu/1.0.0": {
+      "FluentScheduler.Confifu/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -615,7 +615,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "Confifu/1.0.0": {
+      "Confifu/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -628,7 +628,7 @@
         "type": "project",
         "framework": "DNX,Version=v4.5"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -645,7 +645,7 @@
           "lib/net40/FluentScheduler.dll": {}
         }
       },
-      "FluentScheduler.Confifu/1.0.0": {
+      "FluentScheduler.Confifu/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -922,7 +922,7 @@
     }
   },
   "libraries": {
-    "Confifu/1.0.0": {
+    "Confifu/1.0.1": {
       "type": "project",
       "path": "../../src/Confifu/project.json"
     },
@@ -930,13 +930,13 @@
       "type": "project",
       "path": "../../src/Confifu.Abstractions/project.json"
     },
-    "Confifu.Abstractions.DependencyInjection/1.0.0": {
+    "Confifu.Abstractions.DependencyInjection/1.0.1": {
       "type": "project",
       "path": "../../src/Confifu.Abstractions.DependencyInjection/project.json"
     },
-    "FluentScheduler.Confifu/1.0.0": {
+    "FluentScheduler.Confifu/1.0.1": {
       "type": "project",
-      "path": "../../src/FluentScheduler.Confifu/project.json"
+      "path": "../../contrib/FluentScheduler.Confifu/project.json"
     },
     "FluentScheduler/4.0.1": {
       "type": "package",

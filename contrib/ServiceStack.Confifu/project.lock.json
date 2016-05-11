@@ -570,11 +570,11 @@
   "libraries": {
     "Confifu.Abstractions/1.0.1": {
       "type": "project",
-      "path": "../Confifu.Abstractions/project.json"
+      "path": "../../src/Confifu.Abstractions/project.json"
     },
     "Confifu.Abstractions.DependencyInjection/1.0.1": {
       "type": "project",
-      "path": "../Confifu.Abstractions.DependencyInjection/project.json"
+      "path": "../../src/Confifu.Abstractions.DependencyInjection/project.json"
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions/1.0.0-rc1-final": {
       "type": "package",

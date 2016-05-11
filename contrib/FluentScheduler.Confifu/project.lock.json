@@ -1023,7 +1023,7 @@
   "libraries": {
     "Confifu.Abstractions/1.0.1": {
       "type": "project",
-      "path": "../Confifu.Abstractions/project.json"
+      "path": "../../src/Confifu.Abstractions/project.json"
     },
     "FluentScheduler/4.0.1": {
       "type": "package",

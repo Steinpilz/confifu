@@ -57,5 +57,18 @@ namespace Confifu.Abstractions.DependencyInjection
 
             appConfig[ServiceProviderKey] = serviceProvider;
         }
+
+        public static IAppConfig RegisterCommonServices(this IAppConfig appConfig)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+
+            return appConfig.RegisterServices(sc =>
+            {
+                sc.AddTransient<IAppConfig>(sp => appConfig);
+
+                var configVariables = appConfig.GetConfigVariables();
+                sc.AddTransient<IConfigVariables>(sp => configVariables);
+            });
+        }
     }
 }
