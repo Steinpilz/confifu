@@ -3,21 +3,28 @@ using System;
 
 namespace Confifu.Abstractions.DependencyInjection
 {
+    /// <summary>
+    /// Class holding IAppConfig extension methods to integrate
+    /// Microsoft.Extensions.DependencyInject.Abstractions 
+    /// <see cref="https://github.com/aspnet/DependencyInjection"/>
+    /// </summary>
     public static class AppConfigExtensions
     {
+        /// <summary>
+        /// ServiceCollection predefined key
+        /// </summary>
         public const string ServiceCollectionKey = "ServiceCollection";
+
+        /// <summary>
+        /// ServiceProvider predefined key
+        /// </summary>
         public const string ServiceProviderKey = "ServiceProvider";
 
-        public static T Get<T>(this IAppConfig appConfig, string key)
-        {
-            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
-            if (key == null) throw new ArgumentNullException(nameof(key));
-            var config = appConfig[key];
-            if (!(config is T))
-                return default(T);
-            return (T) config;
-        }
-
+        /// <summary>
+        /// Get ServiceCollection from <para>appConfig</para> using ServiceCollection predefined key
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <returns>IServiceCollection instance</returns>
         public static IServiceCollection GetServiceCollection(this IAppConfig appConfig)
         {
             if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
@@ -25,6 +32,11 @@ namespace Confifu.Abstractions.DependencyInjection
             return appConfig.Get<IServiceCollection>(ServiceCollectionKey);
         }
 
+        /// <summary>
+        /// Set ServiceCollection to <para>appConfig</para> using ServiceCollection predefined key
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="serviceCollection">IServiceCollection instance</param>
         public static void SetServiceCollection(this IAppConfig appConfig, IServiceCollection serviceCollection)
         {
             if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
@@ -33,6 +45,11 @@ namespace Confifu.Abstractions.DependencyInjection
             appConfig[ServiceCollectionKey] = serviceCollection;
         }
 
+        /// <summary>
+        /// Get ServiceProvider from <para>appConfig</para> using ServiceProvider predefined key
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <returns>IServiceProvider instance</returns>
         public static IServiceProvider GetServiceProvider(this IAppConfig appConfig)
         {
             if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
@@ -40,6 +57,26 @@ namespace Confifu.Abstractions.DependencyInjection
             return appConfig.Get<IServiceProvider>(ServiceProviderKey);
         }
 
+        /// <summary>
+        /// Set ServiceProvider to <para>appConfig</para> using ServiceProvider predefined key
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="serviceProvider">IServiceCollection instance</param>
+        public static void SetServiceProvider(this IAppConfig appConfig, IServiceProvider serviceProvider)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+            if (serviceProvider == null) throw new ArgumentNullException(nameof(serviceProvider));
+
+            appConfig[ServiceProviderKey] = serviceProvider;
+        }
+
+        /// <summary>
+        /// Call given <para>action</para> with ServiceCollection of given <para>appConfig</para>
+        /// as the first argument
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="action"></param>
+        /// <returns>given <para>IAppConfig</para> instance</returns>
         public static IAppConfig RegisterServices(this IAppConfig appConfig, Action<IServiceCollection> action)
         {
             if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
@@ -50,14 +87,11 @@ namespace Confifu.Abstractions.DependencyInjection
             return appConfig;
         }
 
-        public static void SetServiceProvider(this IAppConfig appConfig, IServiceProvider serviceProvider)
-        {
-            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
-            if (serviceProvider == null) throw new ArgumentNullException(nameof(serviceProvider));
-
-            appConfig[ServiceProviderKey] = serviceProvider;
-        }
-
+        /// <summary>
+        /// Register Common Services (IAppConfig, IConfigVariables) to ServiceCollection of given <para>appConfig</para>.
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <returns>given <para>IAppConfig</para> instance</returns>
         public static IAppConfig RegisterCommonServices(this IAppConfig appConfig)
         {
             if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
