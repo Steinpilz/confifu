@@ -8,28 +8,56 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace ServiceStack.Confifu
 {
+    /// <summary>
+    /// Consts holder
+    /// </summary>
     public static class Const
     {
     }
 
+    /// <summary>
+    /// Strongly typed ServiceStack Confifu Config
+    /// </summary>
     public class Config : LibraryConfig
     {
+        /// <summary>
+        /// Config based on App.Config
+        /// </summary>
         public static Config Current => new Config(App.Config);
 
         public Config (IAppConfig appConfig) : base(appConfig, "ServiceStack:")
         {
         }
         
+        /// <summary>
+        /// ConfigProperty for ServiceStackConfig factory
+        /// </summary>
         public ConfigProperty<Func<ServiceStackConfig>> ServiceStackConfig => Property(() => ServiceStackConfig);
     }
 
+    /// <summary>
+    /// Class holding extension methods for ServiceStack integration
+    /// </summary>
     public static class AppConfigExtensions
     {
+        /// <summary>
+        /// User ServiceStack 
+        /// </summary>
+        /// <param name="appConfig"></param>
+        /// <returns></returns>
         public static IAppConfig UseServiceStack(this IAppConfig appConfig)
         {
             return appConfig.EnsureInit();
         }
 
+        /// <summary>
+        /// Use ServiceStack with HttpAppHost
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="serviceName">ServiceStack serviceName</param>
+        /// <param name="url">ServiceStack base url</param>
+        /// <param name="assemblies">Assemblies with services</param>
+        /// <returns></returns>
         public static IAppConfig UseHttpAppHost(this IAppConfig appConfig, string serviceName, string url,
             params Assembly[] assemblies)
         {
@@ -42,6 +70,13 @@ namespace ServiceStack.Confifu
                 .UseAppHost(() => new AppHostHttpListener(serviceName, url, assemblies));
         }
 
+        /// <summary>
+        /// Use ServiceStack with ASP.NET AppHost
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="serviceName">ServiceStack serviceName</param>
+        /// <param name="assemblies">Assemblies with services</param>
+        /// <returns></returns>
         public static IAppConfig UseWebAppHost(this IAppConfig appConfig, string serviceName,
             params Assembly[] assemblies)
         {
@@ -53,6 +88,12 @@ namespace ServiceStack.Confifu
                 .UseAppHost(() => new AppHostWebListener(serviceName, assemblies));
         }
 
+        /// <summary>
+        /// Use ServiceStack with custom AppHost
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="appHost">appHost factory</param>
+        /// <returns></returns>
         public static IAppConfig UseAppHost(this IAppConfig appConfig, Func<IRunnableAppHost> appHost)
         {
             if (appHost == null) throw new ArgumentNullException(nameof(appHost));
@@ -65,6 +106,11 @@ namespace ServiceStack.Confifu
                 });
         }
         
+        /// <summary>
+        /// Clear current appHost configuration
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <returns></returns>
         public static IAppConfig ClearAppHostConfiguration(this IAppConfig appConfig)
         {
             return appConfig
@@ -75,6 +121,12 @@ namespace ServiceStack.Confifu
             });
         }
 
+        /// <summary>
+        /// Add appHost configuration action
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="configAction">configuration action</param>
+        /// <returns></returns>
         public static IAppConfig AddAppHostConfiguration(this IAppConfig appConfig, Action<IAppHost, EndpointHostConfig> configAction)
         {
             if (configAction == null) throw new ArgumentNullException(nameof(configAction));
@@ -87,6 +139,12 @@ namespace ServiceStack.Confifu
             });
         }
 
+        /// <summary>
+        /// Add ServiceStack plugin
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="plugin">ServiceStack plugin factory</param>
+        /// <returns></returns>
         public static IAppConfig UseAppHostPlugin(this IAppConfig appConfig, Func<IPlugin> plugin)
         {
             if (plugin == null) throw new ArgumentNullException(nameof(plugin));
@@ -96,6 +154,12 @@ namespace ServiceStack.Confifu
             });
         }
 
+        /// <summary>
+        /// Add ServiceStack plugin by type
+        /// </summary>
+        /// <typeparam name="TPlugin">plugin type (must be registered in ServiceCollection)</typeparam>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <returns></returns>
         public static IAppConfig UseAppHostPlugin<TPlugin>(this IAppConfig appConfig)
             where TPlugin : IPlugin
         {

@@ -5,10 +5,17 @@ using Confifu.Abstractions.DependencyInjection;
 
 namespace ServiceStack.Confifu
 {
+    /// <summary>
+    /// ServiceStack Container adapter for Confifu.DependencyIncjetion
+    /// </summary>
     public class ContainerAdapter : IContainerAdapter
     {
         private readonly IAppConfig _appConfig;
 
+        /// <summary>
+        /// Create new ContainerAdapter instance based on given <para>appConfig</para>
+        /// </summary>
+        /// <param name="appConfig"></param>
         public ContainerAdapter(IAppConfig appConfig)
         {
             _appConfig = appConfig;

@@ -5,6 +5,9 @@ using ServiceStack.WebHost.Endpoints;
 
 namespace ServiceStack.Confifu
 {
+    /// <summary>
+    /// AppHostHttpListenreBase wrapper implementing IRunnableAppHost
+    /// </summary>
     public class AppHostHttpListener : AppHostHttpListenerBase, IRunnableAppHost
     {
         private Action<EndpointHostConfig> _configAction;

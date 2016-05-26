@@ -2,10 +2,18 @@
 
 namespace ServiceStack.Confifu
 {
+    /// <summary>
+    /// Class to Run ServiceStack config
+    /// </summary>
     public class ServiceStackAppRunner
     {
         private readonly ServiceStackConfig _config;
 
+
+        /// <summary>
+        /// Create new instance based on <para>config</para>
+        /// </summary>
+        /// <param name="config"></param>
         public ServiceStackAppRunner(ServiceStackConfig config)
         {
             if (config == null) throw new ArgumentNullException(nameof(config));
@@ -13,6 +21,9 @@ namespace ServiceStack.Confifu
             _config = config;
         }
 
+        /// <summary>
+        /// Run config
+        /// </summary>
         public void Run()
         {
             ValidateConfig();
