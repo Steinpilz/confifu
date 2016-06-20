@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "Confifu/0.7.0": {
+      "Confifu/1.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -12,11 +12,11 @@
           "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final"
         }
       },
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/1.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -66,7 +66,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "Confifu/0.7.0": {
+      "Confifu/1.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -75,11 +75,11 @@
           "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final"
         }
       },
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/1.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -129,7 +129,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "Confifu/0.7.0": {
+      "Confifu/1.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -138,11 +138,11 @@
           "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final"
         }
       },
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/1.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5"
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/1.2.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -193,15 +193,15 @@
     }
   },
   "libraries": {
-    "Confifu/0.7.0": {
+    "Confifu/1.2.0": {
       "type": "project",
       "path": "../../src/Confifu/project.json"
     },
-    "Confifu.Abstractions/1.0.0": {
+    "Confifu.Abstractions/1.2.0": {
       "type": "project",
       "path": "../../src/Confifu.Abstractions/project.json"
     },
-    "Confifu.Abstractions.DependencyInjection/1.0.0": {
+    "Confifu.Abstractions.DependencyInjection/1.2.0": {
       "type": "project",
       "path": "../../src/Confifu.Abstractions.DependencyInjection/project.json"
     },

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using Confifu.Abstractions;
 using Confifu.Abstractions.DependencyInjection;
@@ -71,6 +72,28 @@ namespace ServiceStack.Confifu
         }
 
         /// <summary>
+        /// User ServiceStack with HttpAppHost (using configured default ServiceHost name and Service Assemblies list)
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="url">ServiceStack base url</param>
+        /// <returns></returns>
+        public static IAppConfig UseHttpAppHost(this IAppConfig appConfig, string url)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+            if (url == null) throw new ArgumentNullException(nameof(url));
+
+            return appConfig
+                .EnsureInit()
+                .UseAppHost(() =>
+                {
+                    var serviceStackConfig = appConfig.Strong().ServiceStackConfig.Value();
+
+                    return new AppHostHttpListener(serviceStackConfig.ServiceHostName, url,
+                        serviceStackConfig.ServiceHostAssemblies.ToArray());
+                });
+        }
+
+        /// <summary>
         /// Use ServiceStack with ASP.NET AppHost
         /// </summary>
         /// <param name="appConfig">IAppConfig instance</param>
@@ -86,6 +109,25 @@ namespace ServiceStack.Confifu
             return appConfig
                 .EnsureInit()
                 .UseAppHost(() => new AppHostWebListener(serviceName, assemblies));
+        }
+
+        /// <summary>
+        /// Use ServiceStack with ASP.NET AppHost (using configured default ServiceHost name and Service Assemblies list)
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <returns></returns>
+        public static IAppConfig UseWebAppHost(this IAppConfig appConfig)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+
+            return appConfig.EnsureInit()
+                .UseAppHost(() =>
+                {
+                    var serviceStackConfig = appConfig.Strong().ServiceStackConfig.Value();
+
+                    return new AppHostWebListener(serviceStackConfig.ServiceHostName,
+                        serviceStackConfig.ServiceHostAssemblies.ToArray());
+                });
         }
 
         /// <summary>
@@ -105,7 +147,57 @@ namespace ServiceStack.Confifu
                     config.ServiceStackConfig.Value().AppHost = appHost;
                 });
         }
-        
+
+        /// <summary>
+        /// Configure ServiceStackConfig instance using <para>action</para>
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="action">Action used to configure</param>
+        /// <returns></returns>
+        public static IAppConfig ConfigureServiceStackConfig(this IAppConfig appConfig,
+            Action<ServiceStackConfig> action)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+            if (action == null) throw new ArgumentNullException(nameof(action));
+
+            return appConfig.EnsureInit()
+                .ConfigureStrong(config =>
+                {
+                    action(config.ServiceStackConfig.Value());
+                });
+        }
+
+        /// <summary>
+        /// Sets ServiceStackHost default name (will be passed to new IAppHost instance)
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="name">ServiceHost name</param>
+        /// <returns></returns>
+        public static IAppConfig SetServiceHostName(this IAppConfig appConfig, string name)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+            if (name == null) throw new ArgumentNullException(nameof(name));
+            return appConfig.ConfigureServiceStackConfig(c => c.ServiceHostName = name);
+        }
+
+        /// <summary>
+        /// Adds <para>assembliues</para> to the default list assemblies which will be passed 
+        /// to IAppHost instance
+        /// </summary>
+        /// <param name="appConfig">IAppConfig instance</param>
+        /// <param name="assemblies">List of assemblies with services</param>
+        /// <returns></returns>
+        public static IAppConfig AddServiceHostAssemblies(this IAppConfig appConfig, List<Assembly> assemblies)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+            if (assemblies == null) throw new ArgumentNullException(nameof(assemblies));
+
+            return appConfig.ConfigureServiceStackConfig(config =>
+            {
+                config.ServiceHostAssemblies.AddRange(assemblies);
+            });
+        }
+
         /// <summary>
         /// Clear current appHost configuration
         /// </summary>
