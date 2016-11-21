@@ -28,7 +28,15 @@ namespace ServiceStack.Confifu
 
         public T TryResolve<T>()
         {
-            return (T)ServiceProvider().GetService(typeof (T));
+            var serviceProvider = ServiceProvider();
+            if (serviceProvider == null)
+                return default(T);
+            var service = serviceProvider.GetService(typeof (T));
+
+            if (service == null)
+                return default(T);
+
+            return (T) service;
         }
 
         public T Resolve<T>()
