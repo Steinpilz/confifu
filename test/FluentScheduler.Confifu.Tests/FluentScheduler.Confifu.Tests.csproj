@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\contrib\FluentScheduler.Confifu\FluentScheduler.Confifu.csproj" />
+    <ProjectReference Include="..\..\src\Confifu.Abstractions.DependencyInjection\Confifu.Abstractions.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\src\Confifu.Abstractions\Confifu.Abstractions.csproj" />
     <ProjectReference Include="..\..\src\Confifu\Confifu.csproj" />
   </ItemGroup>
