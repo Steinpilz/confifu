@@ -1,7 +1,0 @@
-{
-  "projects": [ "src", "test", "contrib", "vscode-host" ],
-  "sdk": {
-    "version": "1.0.0-rc1-update2"
-  },
-  "packages": "packages"
-}

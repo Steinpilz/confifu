@@ -53,7 +53,7 @@ namespace Confifu.Samples.Library
     {
         public void Say(string msg)
         {
-            Console.WriteLine(msg);
+            //Console.WriteLine(msg);
         }
     }
 }
