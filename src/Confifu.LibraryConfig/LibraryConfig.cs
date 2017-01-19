@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Confifu.Abstractions;
+using System;
 using System.Linq.Expressions;
 
-namespace Confifu.Abstractions
+namespace Confifu.LibraryConfig
 {
     /// <summary>
     /// Base class which helps to organize Strong-typed library configuration classes

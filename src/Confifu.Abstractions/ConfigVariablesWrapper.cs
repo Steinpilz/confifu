@@ -44,17 +44,5 @@ namespace Confifu.Abstractions
             _configVariables = configVariables;
             _prefix = prefix;
         }
-
-        /// <summary>
-        /// Return new ConfigVariablesWrapper instance with a given <para>prefix</para>
-        /// </summary>
-        /// <param name="prefix">prefix string</param>
-        /// <returns>new ConfigVariablesWrapper</returns>
-        public ConfigVariablesWrapper AddPrefix(string prefix)
-        {
-            if (prefix == null) throw new ArgumentNullException(nameof(prefix));
-
-            return new ConfigVariablesWrapper(this, prefix);
-        }
     }
 }

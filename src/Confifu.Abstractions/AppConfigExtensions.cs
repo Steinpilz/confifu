@@ -65,12 +65,12 @@ namespace Confifu.Abstractions
         /// Get AppRunner from <para>appConfig</para> using AppRunner predefined key
         /// </summary>
         /// <param name="appConfig">AppConfig instance</param>
-        /// <returns>delegate of Action type</returns>
+        /// <returns>delegate of Action type, always not null</returns>
         public static Action GetAppRunner(this IAppConfig appConfig)
         {
             if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
 
-            return appConfig.Get<Action>(AppRunnerKey);
+            return (appConfig.Get<Action>(AppRunnerKey)) ?? (() => { });
         }
 
         /// <summary>
@@ -103,12 +103,12 @@ namespace Confifu.Abstractions
         }
 
         /// <summary>
-        /// Set AppRunner action to be executed after existing AppRunner action
+        /// Set AppRunner action to be executed after current AppRunner action
         /// </summary>
         /// <param name="appConfig">AppConfig instance</param>
         /// <param name="appRunner">AppRunner delegate</param>
         /// <returns>AppConfig instance passed to the method</returns>
-        public static IAppConfig AddAppRunnerAfter(this IAppConfig appConfig, Func<Action> appRunner)
+        public static IAppConfig AddAppRunnerAfter(this IAppConfig appConfig, Action appRunner)
         {
             if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
             if (appRunner == null) throw new ArgumentNullException(nameof(appRunner));
@@ -122,12 +122,23 @@ namespace Confifu.Abstractions
         }
 
         /// <summary>
+        /// Set AppRunner action to be executed after current AppRunner action
+        /// </summary>
+        /// <param name="appConfig">AppConfig instance</param>
+        /// <param name="appRunner">AppRunner delegate</param>
+        /// <returns>AppConfig instance passed to the method</returns>
+        public static IAppConfig AddRunner(this IAppConfig appConfig, Action appRunner)
+        {
+            return appConfig.AddAppRunnerAfter(appRunner);
+        }
+
+        /// <summary>
         /// Set AppRunner action to be executed before existing AppRunner action
         /// </summary>
         /// <param name="appConfig">AppConfig instance</param>
         /// <param name="appRunner">AppRunner delegate</param>
         /// <returns>AppConfig instance passed to the method</returns>
-        public static IAppConfig AddAppRunnerBefore(this IAppConfig appConfig, Func<Action> appRunner)
+        public static IAppConfig AddAppRunnerBefore(this IAppConfig appConfig, Action appRunner)
         {
             if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
             if (appRunner == null) throw new ArgumentNullException(nameof(appRunner));

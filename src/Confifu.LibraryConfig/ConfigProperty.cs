@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Confifu.Abstractions;
+using System;
 
-namespace Confifu.Abstractions
+namespace Confifu.LibraryConfig
 {
     /// <summary>
     /// Class for accessing single property by key in given IAppConfig instance

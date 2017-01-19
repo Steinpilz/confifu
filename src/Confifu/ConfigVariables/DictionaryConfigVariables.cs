@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Confifu.Abstractions;
 
-namespace Confifu
+namespace Confifu.ConfigVariables
 {
     /// <summary>
     /// IConfigVariables impnementation returning
@@ -10,13 +10,13 @@ namespace Confifu
     /// </summary>
     public class DictionaryConfigVariables : IConfigVariables
     {
-        private readonly Dictionary<string, string> _vars;
+        private readonly IDictionary<string, string> _vars;
 
         /// <summary>
         /// Creates new DictionaryConfigVariables instance based on a given <para>dict</para>
         /// </summary>
-        /// <param name="dict">Dictionary instance</param>
-        public DictionaryConfigVariables(Dictionary<string, string> dict)
+        /// <param name="dict">IDictionary instance</param>
+        public DictionaryConfigVariables(IDictionary<string, string> dict)
         {
             if (dict == null) throw new ArgumentNullException(nameof(dict));
 
