@@ -1,0 +1,14 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Confifu.Abstractions": {"target": "project"},
+    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
+    "NETStandard.Library": "1.6.1"
+  },
+
+  "frameworks": {
+    "netstandard1.0": {
+    }
+  }
+}

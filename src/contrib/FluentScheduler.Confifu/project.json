@@ -1,0 +1,21 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Confifu.Abstractions": { "target": "project" },
+    "Confifu.Abstractions.DependencyInjection": { "target": "project" },
+    "Confifu.LibraryConfig": {"target": "project"},
+    "FluentScheduler": "5.1.3",
+  },
+
+  "frameworks": {
+    "netstandard1.5": {
+      "dependencies": {
+        "NETStandard.Library": "1.6.1",
+      }
+    },
+    "net451": {
+
+    }
+  }
+}

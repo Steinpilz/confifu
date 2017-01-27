@@ -1,0 +1,25 @@
+﻿{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+  "dependencies": {
+    "Confifu": { "target": "project" },
+    "Confifu.Samples.Library": { "target": "project" }
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50",
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.1"
+        }
+      }
+    }
+  },
+  "runtimes": {
+    "win10-x64": {}
+  }
+}

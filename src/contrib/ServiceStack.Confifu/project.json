@@ -1,0 +1,19 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Confifu.Abstractions": { "target": "project" },
+    "Confifu.Abstractions.DependencyInjection": { "target": "project" },
+    "Confifu.LibraryConfig": {"target": "project"},
+    "ServiceStack": "3.9.71",
+    "ServiceStack.Text": "3.9.71",
+    "ServiceStack.OrmLite.SqlServer": "3.9.71",
+    "ServiceStack.Common": "3.9.71",
+    "ServiceStack.Redis": "3.9.71" 
+  },
+
+  "frameworks": {
+    "net451": {
+    }
+  }
+}
