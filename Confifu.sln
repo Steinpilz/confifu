@@ -7,19 +7,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5A7B49A2-2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{D92F69E7-3DE9-479D-A007-96C52ED3F39D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.Abstractions", "src\Confifu.Abstractions\Confifu.Abstractions.csproj", "{F805D519-BE03-44D5-904D-9D888DA2BCD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.Abstractions", "src\app\Confifu.Abstractions\Confifu.Abstractions.csproj", "{F805D519-BE03-44D5-904D-9D888DA2BCD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.Abstractions.DependencyInjection", "src\Confifu.Abstractions.DependencyInjection\Confifu.Abstractions.DependencyInjection.csproj", "{F9359BDB-6CDB-4248-86E9-EF9990E001BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.Abstractions.DependencyInjection", "src\app\Confifu.Abstractions.DependencyInjection\Confifu.Abstractions.DependencyInjection.csproj", "{F9359BDB-6CDB-4248-86E9-EF9990E001BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu", "src\Confifu\Confifu.csproj", "{97B0BA65-CEFE-4FE4-9D92-FEB111E35D3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu", "src\app\Confifu\Confifu.csproj", "{97B0BA65-CEFE-4FE4-9D92-FEB111E35D3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.Tests", "test\Confifu.Tests\Confifu.Tests.csproj", "{220C59FD-1DDB-44F0-BDDF-AE716D76EED8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.Tests", "src\test\Confifu.Tests\Confifu.Tests.csproj", "{220C59FD-1DDB-44F0-BDDF-AE716D76EED8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.Samples.Library", "samples\Confifu.Samples.Library\Confifu.Samples.Library.csproj", "{525DA4C0-085D-4D66-B2CE-837A9892542F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.Samples.Library", "src\samples\Confifu.Samples.Library\Confifu.Samples.Library.csproj", "{525DA4C0-085D-4D66-B2CE-837A9892542F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.Samples.App", "samples\Confifu.Samples.App\Confifu.Samples.App.csproj", "{EAB7E5FC-CE0A-4469-B6AD-6B0F7D74BB94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.Samples.App", "src\samples\Confifu.Samples.App\Confifu.Samples.App.csproj", "{EAB7E5FC-CE0A-4469-B6AD-6B0F7D74BB94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.LibraryConfig", "src\Confifu.LibraryConfig\Confifu.LibraryConfig.csproj", "{A187E59A-B031-4815-9FB3-4E2C6CC5FDF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confifu.LibraryConfig", "src\app\Confifu.LibraryConfig\Confifu.LibraryConfig.csproj", "{A187E59A-B031-4815-9FB3-4E2C6CC5FDF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{CC408C3F-1C0B-498C-A043-DF8DD3F7FDE8}"
+	ProjectSection(SolutionItems) = preProject
+		build.fsx = build.fsx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
