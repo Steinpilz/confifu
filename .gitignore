@@ -149,3 +149,5 @@ packages/
 *.orig
 tools/FAKE/
 deploy/
+
+.fake

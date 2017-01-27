@@ -1,4 +1,5 @@
 NUGET
   remote: http://www.nuget.org/api/v2
     FAKE (4.50)
+    FAKE.Dotnet (1.1.1)
     xunit.runner.console (2.2.0-beta5-build3474)

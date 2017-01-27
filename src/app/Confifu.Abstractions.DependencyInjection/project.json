@@ -1,8 +1,15 @@
 ﻿{
-  "version": "1.0.0-*",
+  "version": "2.0.0-preview-1",
+  "authors": [ "steinpilz", "ivan.benko" ],
+  "description": "Confifu is centralized configuration for the .NET platform, inspired by application config in Ruby on Rails",
+  "packOptions": {
+    "tags": [ "confifu", "configuration", ".net" ],
+    "projectUrl": "https://github.com/steinpilz/confifu"
+  },
+
 
   "dependencies": {
-    "Confifu.Abstractions": {"target": "project"},
+    "Confifu.Abstractions": { "target": "project" },
     "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
     "NETStandard.Library": "1.6.1"
   },

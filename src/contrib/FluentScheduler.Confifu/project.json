@@ -1,17 +1,23 @@
 ﻿{
-  "version": "1.0.0-*",
+  "version": "2.0.0-preview-1",
+  "authors": [ "steinpilz", "ivan.benko" ],
+  "description": "FluentScheduler interface for confifu",
+  "packOptions": {
+    "tags": [ "confifu", "configuration", ".net", "fluentscheduler" ],
+    "projectUrl": "https://github.com/steinpilz/confifu"
+  },
 
   "dependencies": {
     "Confifu.Abstractions": { "target": "project" },
     "Confifu.Abstractions.DependencyInjection": { "target": "project" },
-    "Confifu.LibraryConfig": {"target": "project"},
-    "FluentScheduler": "5.1.3",
+    "Confifu.LibraryConfig": { "target": "project" },
+    "FluentScheduler": "5.1.3"
   },
 
   "frameworks": {
     "netstandard1.5": {
       "dependencies": {
-        "NETStandard.Library": "1.6.1",
+        "NETStandard.Library": "1.6.1"
       }
     },
     "net451": {
