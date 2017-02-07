@@ -151,3 +151,5 @@ tools/FAKE/
 deploy/
 
 .fake
+.artifacts
+project.lock.json

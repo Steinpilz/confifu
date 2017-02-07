@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Confifu.Abstractions;
 
-namespace Confifu.ConfigVariables
+namespace Confifu.Abstractions
 {
     /// <summary>
     /// IConfigVariables implementation. It tries to get Variable value from underlying IConfigVariables 

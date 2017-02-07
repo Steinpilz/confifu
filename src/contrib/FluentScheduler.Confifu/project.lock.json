@@ -427,7 +427,7 @@
           "lib/net45/_._": {}
         }
       },
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/2.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.0",
         "dependencies": {
@@ -440,7 +440,7 @@
           "netstandard1.0/Confifu.Abstractions.dll": {}
         }
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/2.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.0",
         "dependencies": {
@@ -455,7 +455,7 @@
           "netstandard1.0/Confifu.Abstractions.DependencyInjection.dll": {}
         }
       },
-      "Confifu.LibraryConfig/1.0.0": {
+      "Confifu.LibraryConfig/2.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.0",
         "dependencies": {
@@ -1390,7 +1390,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/2.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.0",
         "dependencies": {
@@ -1403,7 +1403,7 @@
           "netstandard1.0/Confifu.Abstractions.dll": {}
         }
       },
-      "Confifu.Abstractions.DependencyInjection/1.0.0": {
+      "Confifu.Abstractions.DependencyInjection/2.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.0",
         "dependencies": {
@@ -1418,7 +1418,7 @@
           "netstandard1.0/Confifu.Abstractions.DependencyInjection.dll": {}
         }
       },
-      "Confifu.LibraryConfig/1.0.0": {
+      "Confifu.LibraryConfig/2.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.0",
         "dependencies": {
@@ -4324,17 +4324,17 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Confifu.Abstractions/1.0.0": {
+    "Confifu.Abstractions/2.0.0": {
       "type": "project",
-      "path": "c:\\data\\work\\my\\confifu\\src\\app\\Confifu.Abstractions\\project.json",
-      "msbuildProject": "c:\\data\\work\\my\\confifu\\src\\app\\Confifu.Abstractions\\Confifu.Abstractions.xproj"
+      "path": "../../app/Confifu.Abstractions/project.json",
+      "msbuildProject": "../../app/Confifu.Abstractions/Confifu.Abstractions.xproj"
     },
-    "Confifu.Abstractions.DependencyInjection/1.0.0": {
+    "Confifu.Abstractions.DependencyInjection/2.0.0": {
       "type": "project",
-      "path": "c:\\data\\work\\my\\confifu\\src\\app\\Confifu.Abstractions.DependencyInjection\\project.json",
-      "msbuildProject": "c:\\data\\work\\my\\confifu\\src\\app\\Confifu.Abstractions.DependencyInjection\\Confifu.Abstractions.DependencyInjection.xproj"
+      "path": "../../app/Confifu.Abstractions.DependencyInjection/project.json",
+      "msbuildProject": "../../app/Confifu.Abstractions.DependencyInjection/Confifu.Abstractions.DependencyInjection.xproj"
     },
-    "Confifu.LibraryConfig/1.0.0": {
+    "Confifu.LibraryConfig/2.0.0": {
       "type": "project",
       "path": "../../app/Confifu.LibraryConfig/project.json",
       "msbuildProject": "../../app/Confifu.LibraryConfig/Confifu.LibraryConfig.xproj"

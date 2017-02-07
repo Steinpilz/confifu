@@ -1,6 +1,4 @@
-﻿using Confifu.Abstractions;
-
-namespace Confifu.ConfigVariables
+﻿namespace Confifu.Abstractions
 {
     /// <summary>
     /// IConfigVariables implementation returning always null

@@ -4,47 +4,138 @@ open Fake
 open DotNetCli
 
 // Properties
-let buildDir = "./build/"
-let testDir = "./test/"
+let artifactsDir = "./.artifacts"
+let buildDir = artifactsDir + "/build/"
+let testDir = artifactsDir + "/test/"
+let publishDir = artifactsDir + "/publish/"
 let testDlls = testDir + "*.Tests.dll"
 
-let appProjects = "src/app/**/*.csproj"
-let testProjects = "src/test/**/*.csproj"
-
+let appProjects = "src/app/**/project.json"
+let contribProjects = "src/contrib/**/project.json"
+let testProjects = "src/test/**/project.json"
+let publishProjects = 
+    [
+        "Confifu.Abstractions", "src/app/Confifu.Abstractions"
+        "Confifu.Abstractions.DependencyInjection", "src/app/Confifu.Abstractions.DependencyInjection"
+        "Confifu.LibraryConfig", "src/app/Confifu.LibraryConfig"
+        "Confifu", "src/app/Confifu"
+    ]
+let restoreDir = "src"
 // Arguments
 let version = getBuildParamOrDefault "version" "0"
 
+// functions
+
+let findGrowl() =
+    ["C:\Program Files (x86)\Growl for Windows\growlnotify.exe"; "C:\Program Files\Growl for Windows\growlnotify.exe"] 
+        |> Seq.where (fun file -> 
+            System.IO.File.Exists(file)
+        )
+        |> Seq.tryHead
+
+let growlPath = findGrowl()
+
+
+let runTestsInProject(project: string) =
+    tracefn "Running tests in %s" project
+    DotNetCli.RunCommand(id) ("test " + project)
+
+
+let runTests() = 
+    tracefn("Running tests...")
+    !! testProjects
+            |> Seq.iter (fun projects -> 
+                runTestsInProject(projects)
+            ) 
+
+let packProject(project: string, versionSuffix: Option<string>) = 
+    tracefn "Packing project %s" project
+    DotNetCli.Pack(fun p -> 
+        {
+            p with
+                Project = project
+                Configuration = "Release"
+                OutputPath = publishDir
+                VersionSuffix = 
+                    match versionSuffix with
+                        | Some x -> x
+                        | None -> ""
+        })
+
 // Targets
 Target "Clean" (fun _ -> 
-    CleanDir buildDir
+    CleanDir artifactsDir
 )
 
-Target "BuildApp" (fun _ -> 
-    !! appProjects
-        |> MSBuildRelease buildDir "Build"
-        |> Log "AppBuild-Output: "
+Target "Restore" (fun _ -> 
+    DotNetCli.Restore(fun p ->
+    { p with 
+        Project = restoreDir
+    })
+
 )
 
-Target "BuildTest" (fun _ -> 
-    !! testProjects
-        |> MSBuildRelease testDir "Build"
-        |> Log "AppBuild-Output: "
+Target "Build" (fun _ -> 
+    !! appProjects ++ contribProjects
+        |> Seq.iter (fun projects -> 
+            DotNetCli.Build(fun p ->
+            { p with 
+                Project = projects
+                Configuration = "Release"
+                
+            })
+        )
 )
 
-// Target "Test" (fun _ -> 
-//     !! testDlls
-//         |> xUnit2 (fun p -> { p with HtmlOutputPath = Some(testDir @@ "unit-tests-result.html")})
-// )
-
-Target "Default" (fun _ ->
-    trace ("Hello World from FAKE " + version)
+Target "Test" (fun _ -> 
+    runTests()
 )
 
+Target "Watch" (fun _ ->
+    use watcher = !! ("src/**/" @@ "*.cs") |> WatchChanges (fun changes ->
+        runTests()
+    )
+    System.Console.ReadLine() |> ignore
+    watcher.Dispose()
+)
+
+Target "Pack" (fun _ ->
+    publishProjects
+        |> Seq.iter(fun (project, projectPath) ->
+            packProject(projectPath, None)
+        )
+)
+
+Target "Pack-Pre" (fun _ -> 
+    publishProjects
+        |> Seq.iter(fun (project, projectPath) ->
+            packProject(projectPath, Some (getBuildParamOrDefault "Version" "no-version") )
+        ) 
+)
+
+Target "Publish" (fun _ -> 
+    publishProjects
+        |> Seq.iter(fun (project, projectPath) -> 
+            NuGet(fun p ->
+            {
+                p with
+                    AccessKey = environVarOrFail "NUGET_API_KEY"
+                    Publish = true
+            }) 
+            |> ignore
+        )
+    
+)
+//
+//Target "Publish-Tags" (fun _ ->
+//    Git.Branches.
+//)
+
+Target "Default" <| DoNothing
 // Dependencies
 "Clean"
-   // ==> "BuildApp"
-    //==> "BuildTest"
-    //==> "Test"
+    ==> "Restore"
+    ==> "Build"
     ==> "Default"
 
 // start build

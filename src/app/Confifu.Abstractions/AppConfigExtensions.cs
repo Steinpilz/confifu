@@ -164,5 +164,17 @@ namespace Confifu.Abstractions
 
             return new AppConfigWrapper(appConfig, prefix);
         }
+
+        /// <summary>
+        /// Sets to IAppConfig instance ConfigVariables and returns the given instance
+        /// </summary>
+        /// <param name="appConfig">AppConfig instance</param>
+        /// <param name="configVariables">ConfigVariables instance</param>
+        /// <returns>Given IAppConfig instance</returns>
+        public static IAppConfig WithConfigVariables(this IAppConfig appConfig, IConfigVariables configVariables)
+        {
+            appConfig.SetConfigVariables(configVariables);
+            return appConfig;
+        }
     }
 }

@@ -314,7 +314,7 @@
           "ref/netstandard1.0/System.Xml.XDocument.dll": {}
         }
       },
-      "Confifu.Abstractions/1.0.0": {
+      "Confifu.Abstractions/2.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.0",
         "dependencies": {
@@ -1964,7 +1964,7 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Confifu.Abstractions/1.0.0": {
+    "Confifu.Abstractions/2.0.0": {
       "type": "project",
       "path": "../Confifu.Abstractions/project.json",
       "msbuildProject": "../Confifu.Abstractions/Confifu.Abstractions.xproj"

@@ -35,8 +35,40 @@ namespace Confifu.Tests.ConfigVariables
         }
     }
 
-    public class ConfigVariablesChainTests 
+    public class DictionaryConfigVariablesBuilderTests : ConfigVariablesBuilderTestsBase
     {
-        
+        [Fact]
+        public void it_creates_valid_config_variables()
+        {
+            var vars = Build(builder =>
+            {
+                builder.Dictionary(d =>
+                {
+                    d.Add("1", "2");
+                    d.Add("2", "3");
+                });
+            });
+
+            vars["1"].ShouldBe("2");
+            vars["2"].ShouldBe("3");
+            vars["3"].ShouldBeNull();
+        }
+
+        [Fact]
+        public void it_creates_valid_config_variables_using_cool_configurator()
+        {
+            var vars = Build(builder =>
+            {
+                builder.Static(d =>
+                {
+                    d("1", "2");
+                    d("2", "3");
+                });
+            });
+
+            vars["1"].ShouldBe("2");
+            vars["2"].ShouldBe("3");
+            vars["3"].ShouldBeNull();
+        }
     }
 }

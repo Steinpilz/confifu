@@ -13,7 +13,7 @@ namespace Confifu.Abstractions
         public static IAppConfig Config
         {
             get
-            {
+            { 
                 if (_config == null)
                     throw new InvalidOperationException("App.Config should be set prior to its usage");
                 return _config;

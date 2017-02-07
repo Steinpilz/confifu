@@ -5,6 +5,8 @@ using Confifu.Abstractions;
 using FluentScheduler.Confifu;
 using FluentScheduler;
 using Confifu.ConfigVariables;
+using System.Diagnostics;
+using System.Threading;
 
 namespace FluentScheduler.Confifu.Tests
 {
@@ -32,7 +34,8 @@ namespace FluentScheduler.Confifu.Tests
                 }).ToRunNow();
             });
             appConfig.GetAppRunner()?.Invoke();
-            
+        
+            Thread.Sleep(100);
             Assert.True(itIsWorking);
         }
         
