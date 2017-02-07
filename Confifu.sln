@@ -12,25 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{CC408C3F-1
 		build.fsx = build.fsx
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "contrib", "contrib", "{54D3CFC8-B6FB-4B63-A595-0EF264508637}"
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu.Abstractions", "src\app\Confifu.Abstractions\Confifu.Abstractions.xproj", "{E4C9C9FB-3B9A-4095-B721-26E113318793}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu.Abstractions.DependencyInjection", "src\app\Confifu.Abstractions.DependencyInjection\Confifu.Abstractions.DependencyInjection.xproj", "{195E9652-E1B0-4793-9CA1-A7815582CE8D}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu.LibraryConfig", "src\app\Confifu.LibraryConfig\Confifu.LibraryConfig.xproj", "{E94B5166-7343-46D2-84D4-BF5E57A8D3C2}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu", "src\app\Confifu\Confifu.xproj", "{13781088-6E24-4341-BB2F-9820DBC89B9F}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu.Tests", "src\test\Confifu.Tests\Confifu.Tests.xproj", "{2F57B52B-CA28-48C0-A5DC-29BE361F4E26}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FluentScheduler.Confifu.Tests", "src\test\FluentScheduler.Confifu.Tests\FluentScheduler.Confifu.Tests.xproj", "{0D510334-5C90-4FBE-B131-67F7BFC05592}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu.Autofac", "src\contrib\Confifu.Autofac\Confifu.Autofac.xproj", "{A0216978-0E31-4C63-9566-D41E9897DFFD}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FluentScheduler.Confifu", "src\contrib\FluentScheduler.Confifu\FluentScheduler.Confifu.xproj", "{9C54B9D4-BC0D-4571-9285-3387A91E81D0}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ServiceStack.Confifu", "src\contrib\ServiceStack.Confifu\ServiceStack.Confifu.xproj", "{0F0AE152-9871-4F4A-9037-F1D255BBC436}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu.Samples.Library", "src\samples\Confifu.Samples.Library\Confifu.Samples.Library.xproj", "{9813C725-2A3A-453C-AAB7-1921A37462D4}"
 EndProject
@@ -46,14 +32,6 @@ Global
 		{E4C9C9FB-3B9A-4095-B721-26E113318793}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4C9C9FB-3B9A-4095-B721-26E113318793}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4C9C9FB-3B9A-4095-B721-26E113318793}.Release|Any CPU.Build.0 = Release|Any CPU
-		{195E9652-E1B0-4793-9CA1-A7815582CE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{195E9652-E1B0-4793-9CA1-A7815582CE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{195E9652-E1B0-4793-9CA1-A7815582CE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{195E9652-E1B0-4793-9CA1-A7815582CE8D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E94B5166-7343-46D2-84D4-BF5E57A8D3C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E94B5166-7343-46D2-84D4-BF5E57A8D3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E94B5166-7343-46D2-84D4-BF5E57A8D3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E94B5166-7343-46D2-84D4-BF5E57A8D3C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13781088-6E24-4341-BB2F-9820DBC89B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13781088-6E24-4341-BB2F-9820DBC89B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13781088-6E24-4341-BB2F-9820DBC89B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -62,22 +40,6 @@ Global
 		{2F57B52B-CA28-48C0-A5DC-29BE361F4E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F57B52B-CA28-48C0-A5DC-29BE361F4E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F57B52B-CA28-48C0-A5DC-29BE361F4E26}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D510334-5C90-4FBE-B131-67F7BFC05592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D510334-5C90-4FBE-B131-67F7BFC05592}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D510334-5C90-4FBE-B131-67F7BFC05592}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D510334-5C90-4FBE-B131-67F7BFC05592}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A0216978-0E31-4C63-9566-D41E9897DFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0216978-0E31-4C63-9566-D41E9897DFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0216978-0E31-4C63-9566-D41E9897DFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0216978-0E31-4C63-9566-D41E9897DFFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C54B9D4-BC0D-4571-9285-3387A91E81D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C54B9D4-BC0D-4571-9285-3387A91E81D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C54B9D4-BC0D-4571-9285-3387A91E81D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C54B9D4-BC0D-4571-9285-3387A91E81D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F0AE152-9871-4F4A-9037-F1D255BBC436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F0AE152-9871-4F4A-9037-F1D255BBC436}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F0AE152-9871-4F4A-9037-F1D255BBC436}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F0AE152-9871-4F4A-9037-F1D255BBC436}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9813C725-2A3A-453C-AAB7-1921A37462D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9813C725-2A3A-453C-AAB7-1921A37462D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9813C725-2A3A-453C-AAB7-1921A37462D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -92,10 +54,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2F57B52B-CA28-48C0-A5DC-29BE361F4E26} = {5A7B49A2-291A-4609-AA93-74212323F5CD}
-		{0D510334-5C90-4FBE-B131-67F7BFC05592} = {5A7B49A2-291A-4609-AA93-74212323F5CD}
-		{A0216978-0E31-4C63-9566-D41E9897DFFD} = {54D3CFC8-B6FB-4B63-A595-0EF264508637}
-		{9C54B9D4-BC0D-4571-9285-3387A91E81D0} = {54D3CFC8-B6FB-4B63-A595-0EF264508637}
-		{0F0AE152-9871-4F4A-9037-F1D255BBC436} = {54D3CFC8-B6FB-4B63-A595-0EF264508637}
 		{9813C725-2A3A-453C-AAB7-1921A37462D4} = {D92F69E7-3DE9-479D-A007-96C52ED3F39D}
 		{137A50D2-489D-4DB2-A9B5-A8BB968C471E} = {D92F69E7-3DE9-479D-A007-96C52ED3F39D}
 	EndGlobalSection

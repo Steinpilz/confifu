@@ -11,7 +11,6 @@ let publishDir = artifactsDir + "/publish/"
 let testDlls = testDir + "*.Tests.dll"
 
 let appProjects = "src/app/**/project.json"
-let contribProjects = "src/contrib/**/project.json"
 let testProjects = "src/test/**/project.json"
 let publishProjects = 
     [
@@ -76,7 +75,7 @@ Target "Restore" (fun _ ->
 )
 
 Target "Build" (fun _ -> 
-    !! appProjects ++ contribProjects
+    !! appProjects
         |> Seq.iter (fun projects -> 
             DotNetCli.Build(fun p ->
             { p with 

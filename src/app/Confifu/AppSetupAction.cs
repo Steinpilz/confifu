@@ -4,13 +4,13 @@ namespace Confifu
 {
     internal class AppSetupAction
     {
-        public AppSetupAction(Action action, string environment = null)
+        public AppSetupAction(Action action, AppEnv appEnv)
         {
             Action = action;
-            Environment = environment;
+            AppEnv = appEnv;
         }
 
-        public string Environment { get; }
+        public AppEnv AppEnv { get; }
         public Action Action { get; }
     }
 }

@@ -8,12 +8,12 @@ namespace Confifu.Samples.App
         public SampleAppSetup() : base(new CustomConfigVariables())
         {
             Setup = true;
-            Common(() =>
+            Configure(() =>
             {
                 AppConfig.SetupHelloWorldSayerFromEnvVars();
             });
 
-            Environment("production", () =>
+            ConfigureFor(AppEnvs.Production, () =>
             {
                 AppConfig.SetupNullHelloWorldSayer();
             });

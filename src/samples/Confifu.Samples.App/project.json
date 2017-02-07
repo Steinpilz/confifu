@@ -4,7 +4,7 @@
     "emitEntryPoint": true
   },
   "dependencies": {
-    "Confifu": { "target": "project" },
+    "Confifu": {"target": "project"},
     "Confifu.Samples.Library": { "target": "project" }
   },
 

@@ -3,7 +3,6 @@
 
   "dependencies": {
     "Confifu.Abstractions": { "target": "project" },
-    "Confifu.Abstractions.DependencyInjection": {"target": "project"}
   },
 
   "frameworks": {
