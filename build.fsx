@@ -15,8 +15,6 @@ let testProjects = "src/test/**/project.json"
 let publishProjects = 
     [
         "Confifu.Abstractions", "src/app/Confifu.Abstractions"
-        "Confifu.Abstractions.DependencyInjection", "src/app/Confifu.Abstractions.DependencyInjection"
-        "Confifu.LibraryConfig", "src/app/Confifu.LibraryConfig"
         "Confifu", "src/app/Confifu"
     ]
 let restoreDir = "src"
@@ -113,17 +111,12 @@ Target "Pack-Pre" (fun _ ->
 )
 
 Target "Publish" (fun _ -> 
-    publishProjects
-        |> Seq.iter(fun (project, projectPath) -> 
-            NuGet(fun p ->
-            {
-                p with
-                    AccessKey = environVarOrFail "NUGET_API_KEY"
-                    Publish = true
-            }) 
-            |> ignore
-        )
-    
+    Paket.Push(fun p ->
+        {
+            p with
+                    ApiKey = environVarOrFail "NUGET_API_KEY"
+                    WorkingDir = publishDir
+        })
 )
 //
 //Target "Publish-Tags" (fun _ ->
@@ -136,6 +129,12 @@ Target "Default" <| DoNothing
     ==> "Restore"
     ==> "Build"
     ==> "Default"
+
+"Clean"
+    ==> "Pack-Pre"
+
+"Clean"
+    ==> "Pack"
 
 // start build
 RunTargetOrDefault "Default"
