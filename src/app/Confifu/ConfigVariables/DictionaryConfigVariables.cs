@@ -56,8 +56,10 @@ namespace Confifu.ConfigVariables
             if (builder == null)
                 throw new ArgumentNullException(nameof(builder));
 
-            var dictionaryBuilder = builder.AddBuilder(new DictionaryConfigVariablesBuilder());
+            var dictionaryBuilder = new DictionaryConfigVariablesBuilder();
             config(dictionaryBuilder);
+
+            builder.AddBuilder(dictionaryBuilder);
 
             return builder;
         }
