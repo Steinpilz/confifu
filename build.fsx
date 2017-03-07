@@ -59,6 +59,15 @@ let packProject(project: string, versionSuffix: Option<string>) =
                         | None -> ""
         })
 
+let publish() =
+    tracefn "publishing..."
+    Paket.Push(fun p ->
+        {
+            p with
+                    ApiKey = environVarOrFail "NUGET_API_KEY"
+                    WorkingDir = publishDir
+        })
+
 // Targets
 Target "Clean" (fun _ -> 
     CleanDir artifactsDir
@@ -110,13 +119,12 @@ Target "Pack-Pre" (fun _ ->
         ) 
 )
 
-Target "Publish" (fun _ -> 
-    Paket.Push(fun p ->
-        {
-            p with
-                    ApiKey = environVarOrFail "NUGET_API_KEY"
-                    WorkingDir = publishDir
-        })
+Target "Publish-Release" (fun _ ->
+    publish()    
+)
+
+Target "Publish-Pre" (fun _ ->
+    publish()    
 )
 //
 //Target "Publish-Tags" (fun _ ->
@@ -136,5 +144,10 @@ Target "Default" <| DoNothing
 "Clean"
     ==> "Pack"
 
+"Pack"
+    ==> "Publish-Release"
+
+"Pack-Pre"
+    ==> "Publish-Pre"
 // start build
 RunTargetOrDefault "Default"

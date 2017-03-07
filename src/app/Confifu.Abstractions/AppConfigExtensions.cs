@@ -176,5 +176,69 @@ namespace Confifu.Abstractions
             appConfig.SetConfigVariables(configVariables);
             return appConfig;
         }
+
+        /// <summary>
+        /// Ensures that <paramref name="initializerAction"/> runs once (scoped by <paramref name="module"/> in given <paramref name="appConfig"/> instance)
+        /// </summary>
+        /// <param name="appConfig"></param>
+        /// <param name="module"></param>
+        /// <param name="initializerAction"></param>
+        /// <returns></returns>
+        public static IAppConfig RunOnce(this IAppConfig appConfig, string module, Action initializerAction)
+        {
+            var key = $"{module}:__Initialized";
+            if ( (appConfig[key] as bool?) == true)
+                return appConfig;
+
+            initializerAction?.Invoke();
+
+            appConfig[key] = true;
+
+            return appConfig;
+        }
+
+        /// <summary>
+        /// Creates singleton config in <paramref name="module"/> and runs once <paramref name="oneTimeAction"/>
+        /// Returns created or existing config
+        /// </summary>
+        /// <typeparam name="TConfig"></typeparam>
+        /// <param name="appConfig"></param>
+        /// <param name="module"></param>
+        /// <param name="configFunc"></param>
+        /// <param name="oneTimeAction"></param>
+        /// <returns></returns>
+        public static TConfig EnsureConfig<TConfig>(this IAppConfig appConfig, 
+            string module,
+            Func<TConfig> configFunc, 
+            Action<TConfig> oneTimeAction)
+        {
+            var config = appConfig[module + ":__Config"];
+            if(config == null)
+            {
+                config = configFunc();
+                appConfig[module + ":__Config"] = config;
+
+                oneTimeAction((TConfig)config);
+            }
+
+            return (TConfig)config;
+        }
+
+
+        /// <summary>
+        /// Creates singleton config in <paramref name="module"/> and runs once <paramref name="oneTimeAction"/>
+        /// Returns created or existing config
+        /// </summary>
+        /// <typeparam name="TConfig"></typeparam>
+        /// <param name="appConfig"></param>
+        /// <param name="module"></param>
+        /// <param name="oneTimeAction"></param>
+        /// <returns></returns>
+        public static TConfig EnsureConfig<TConfig>(this IAppConfig appConfig, string module, Action<TConfig> oneTimeAction)
+            where TConfig : new()
+        {
+            return appConfig.EnsureConfig(module, () => new TConfig(), oneTimeAction);
+        }
+
     }
 }

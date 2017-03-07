@@ -153,3 +153,4 @@ deploy/
 .fake
 .artifacts
 project.lock.json
+.idea
