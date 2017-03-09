@@ -88,17 +88,10 @@ namespace Confifu.ConfigVariables
         public static ConfigVariablesBuilder Linkable(this ConfigVariablesBuilder builder, 
             Action<ConfigVariablesBuilder> config)
         {
-            if (config == null)
-                throw new ArgumentNullException(nameof(config));
             if (builder == null)
                 throw new ArgumentNullException(nameof(builder));
 
-            var childBuilder = new ConfigVariablesBuilder();
-            config(childBuilder);
-
-            builder.AddBuilder(new LinkableConfigVariablesBuilder(childBuilder));
-
-            return builder;
+            return builder.ChildBuilder(config, x => new LinkableConfigVariables(x));
         }
     }
 
