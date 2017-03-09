@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <AssemblyName>Confifu.Samples.Library</AssemblyName>
+    <PackageId>Confifu.Samples.Library</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\app\Confifu.Abstractions\Confifu.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

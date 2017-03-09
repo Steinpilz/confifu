@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5A7B49A2-291A-4609-AA93-74212323F5CD}"
 EndProject
@@ -12,15 +12,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{CC408C3F-1
 		build.fsx = build.fsx
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu.Abstractions", "src\app\Confifu.Abstractions\Confifu.Abstractions.xproj", "{E4C9C9FB-3B9A-4095-B721-26E113318793}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confifu.Abstractions", "src\app\Confifu.Abstractions\Confifu.Abstractions.csproj", "{E4C9C9FB-3B9A-4095-B721-26E113318793}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu", "src\app\Confifu\Confifu.xproj", "{13781088-6E24-4341-BB2F-9820DBC89B9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confifu", "src\app\Confifu\Confifu.csproj", "{13781088-6E24-4341-BB2F-9820DBC89B9F}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu.Tests", "src\test\Confifu.Tests\Confifu.Tests.xproj", "{2F57B52B-CA28-48C0-A5DC-29BE361F4E26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confifu.Tests", "src\test\Confifu.Tests\Confifu.Tests.csproj", "{2F57B52B-CA28-48C0-A5DC-29BE361F4E26}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu.Samples.Library", "src\samples\Confifu.Samples.Library\Confifu.Samples.Library.xproj", "{9813C725-2A3A-453C-AAB7-1921A37462D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confifu.Samples.Library", "src\samples\Confifu.Samples.Library\Confifu.Samples.Library.csproj", "{9813C725-2A3A-453C-AAB7-1921A37462D4}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Confifu.Samples.App", "src\samples\Confifu.Samples.App\Confifu.Samples.App.xproj", "{137A50D2-489D-4DB2-A9B5-A8BB968C471E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Confifu.Samples.App", "src\samples\Confifu.Samples.App\Confifu.Samples.App.csproj", "{137A50D2-489D-4DB2-A9B5-A8BB968C471E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

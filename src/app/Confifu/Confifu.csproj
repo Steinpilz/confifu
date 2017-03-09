@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Confifu is centralized configuration for the .NET platform, inspired by application config in Ruby on Rails</Description>
+    <VersionPrefix>2.0.0</VersionPrefix>
+    <Authors>steinpilz;ivan.benko</Authors>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <AssemblyName>Confifu</AssemblyName>
+    <PackageId>Confifu</PackageId>
+    <PackageTags>confifu;configuration;.net</PackageTags>
+    <PackageProjectUrl>https://github.com/steinpilz/confifu</PackageProjectUrl>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Confifu.Abstractions\Confifu.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <AssemblyName>Confifu.Samples.App</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>Confifu.Samples.App</PackageId>
+    <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\app\Confifu\Confifu.csproj" />
+    <ProjectReference Include="..\Confifu.Samples.Library\Confifu.Samples.Library.csproj" />
+  </ItemGroup>
+
+</Project>
