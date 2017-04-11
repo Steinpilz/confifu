@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Confifu
@@ -9,34 +10,106 @@ namespace Confifu
     /// </summary>
     public class AppEnv
     {
-        private HashSet<string> include;
-        private HashSet<string> exclude;
-
-        private AppEnv(IEnumerable<string> include, IEnumerable<string> exclude)
+        class AppEnvExpression
         {
-            this.include = include == null ? null : new HashSet<string>(include, StringComparer.CurrentCultureIgnoreCase);
-            this.exclude = exclude == null ? null : new HashSet<string>(exclude, StringComparer.CurrentCultureIgnoreCase);
+            AppEnv Left { get; }
+            AppEnv Right { get; }
+            AppEnvOperation Op { get; }
+
+            internal AppEnvExpression(AppEnvOperation op, AppEnv left, AppEnv right)
+            {
+                Op = op;
+                Left = left;
+                Right = right;
+            }
+
+            internal bool IsIn(string testEnv) => Op.Match(
+                    union: () => Left.IsIn(testEnv) || Right.IsIn(testEnv),
+                    intersect: () => Left.IsIn(testEnv) && Right.IsIn(testEnv),
+                    negative: () => !Left.IsIn(testEnv)
+                    );
+
+            public override string ToString()
+            {
+                return Op.Match(
+                    union: () => $"{Left} + {Right}",
+                    intersect: () => $"{Left.ToExpressionString()} * {Right.ToExpressionString()}",
+                    negative: () => $"!{Left.ToExpressionString()}"
+                    );
+            }
         }
+
+        class AppEnvOperation 
+        {
+            public static AppEnvOperation Union = new AppEnvOperation(1);
+            public static AppEnvOperation Intersect = new AppEnvOperation(2);
+            public static AppEnvOperation Negative = new AppEnvOperation(3);
+
+            int value;
+            private AppEnvOperation(int value)
+            {
+                this.value = value;
+            }
+
+            public T Match<T>(Func<T> union, Func<T> intersect, Func<T> negative)
+            {
+                if (this.Equals(Union))
+                    return union();
+                if (this.Equals(Intersect))
+                    return intersect();
+                if (this.Equals(Negative))
+                    return negative();
+
+                Debug.Assert(false, "Unknown AppEnvOperation");
+                throw new Exception("wtf!!"); // support compiler, actually must not happen
+            }
+
+            public override bool Equals(object obj)
+            {
+                var op = obj as AppEnvOperation;
+                if (op == null) return false;
+                return op.value == this.value;
+            }
+
+            public override int GetHashCode() => value.GetHashCode();
+        }
+
+        private HashSet<string> include;
+        private AppEnvExpression expression;
+
+        private AppEnv(IEnumerable<string> include)
+        {
+            this.include = new HashSet<string>(include, StringComparer.CurrentCultureIgnoreCase);
+        }
+
+        private AppEnv(AppEnvExpression expression)
+        {
+            this.expression = expression;
+        }
+
+        internal string ToExpressionString() => IsExpression() ? $"({this})" : this.ToString();
+
+        internal bool IsExpression() => expression != null;
 
         /// <summary>
         /// AppEnv instance containing All environments
         /// </summary>
         /// <returns></returns>
-        public static AppEnv All = new AppEnv(null, null);
+        public static AppEnv All = !new AppEnv(new string[0]);
 
         /// <summary>
         /// Creates AppEnv instance with single <paramref name="appEnvs"/> environment
         /// </summary>
         /// <param name="appEnvs"></param>
         /// <returns></returns>
-        public static AppEnv In(params string[] appEnvs) => new AppEnv(appEnvs, null);
+        public static AppEnv In(params string[] appEnvs) => new AppEnv(appEnvs);
 
         /// <summary>
         /// Creates AppEnv instance contains all environments except <paramref name="appEnvs"/>
         /// </summary>
         /// <param name="appEnvs"></param>
         /// <returns></returns>
-        public static AppEnv NotIn(params string[] appEnvs) => new AppEnv(null, appEnvs);
+        public static AppEnv NotIn(params string[] appEnvs) => !In(appEnvs);
 
         /// <summary>
         /// Creates new AppEnv containing both environments
@@ -44,8 +117,7 @@ namespace Confifu
         /// <param name="another"></param>
         /// <returns></returns>
         public AppEnv Plus(AppEnv another)
-            => new AppEnv(MergeInclude(include, another.include, (a,b) => a.Concat(b)), 
-                    MergeExclude(exclude, another.exclude, (a,b) => a.Intersect(b)));
+            => new AppEnv(new AppEnvExpression(AppEnvOperation.Union, this, another));
 
         /// <summary>
         /// Creates new AppEnv containing intersection of both environments
@@ -53,8 +125,7 @@ namespace Confifu
         /// <param name="another"></param>
         /// <returns></returns>
         public AppEnv Intersects(AppEnv another)
-            => new AppEnv(MergeInclude(include, another.include, (a, b) => a.Intersect(b)),
-                MergeExclude(exclude, another.exclude, (a, b) => a.Concat(b)));
+            => new AppEnv(new AppEnvExpression(AppEnvOperation.Intersect, this, another));
 
         /// <summary>
         /// Creates new AppEnv containing instance environments except of environments from <paramref name="another"/>
@@ -67,7 +138,7 @@ namespace Confifu
         /// Creates new AppEnv containing Reverse environments
         /// </summary>
         /// <returns></returns>
-        public AppEnv Negative() => new AppEnv(exclude, include);
+        public AppEnv Negative() => new AppEnv(new AppEnvExpression(AppEnvOperation.Negative, this, null));
 
         public static AppEnv operator +(AppEnv appEnv1, AppEnv appEnv2) => appEnv1.Plus(appEnv2);
         public static AppEnv operator *(AppEnv appEnv1, AppEnv appEnv2) => appEnv1.Intersects(appEnv2);
@@ -86,18 +157,18 @@ namespace Confifu
         /// <returns></returns>
         public bool IsIn(string environment)
         {
-            if (exclude != null && exclude.Contains(environment))
-                return false;
+            if (expression != null)
+                return expression.IsIn(environment);
 
-            if (include != null && !include.Contains(environment))
-                return false;
-
-            return true;
+            return include.Contains(environment);
         }
 
         public override string ToString()
         {
-            return $"[{string.Join(",", include)}],-[{string.Join(",", exclude)}]";
+            if (expression != null)
+                return expression.ToString();
+
+            return "[" + string.Join(",", include)+ "]";
         }
 
         private static IEnumerable<string> MergeInclude(IEnumerable<string> first, IEnumerable<string> second,

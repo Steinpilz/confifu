@@ -110,5 +110,51 @@ namespace Confifu.Tests
             actual.IsIn("C").ShouldBeTrue();
             actual.IsIn("D").ShouldBeFalse();
         }
+
+        [Fact]
+        public void it_checks_complex_scenario_1()
+        {
+            var qa = AppEnv.In("qa");
+
+            qa.IsIn("qa").ShouldBeTrue();
+
+            var local = AppEnv.In("development") + AppEnv.In("test") + AppEnv.In("other-dev");
+
+            local.IsIn("development").ShouldBeTrue();
+            local.IsIn("test").ShouldBeTrue();
+            local.IsIn("other-dev").ShouldBeTrue();
+            local.IsIn("production").ShouldBeFalse();
+
+            var deployed = !local;
+
+            deployed.IsIn("development").ShouldBeFalse();
+            deployed.IsIn("test").ShouldBeFalse();
+            deployed.IsIn("other-dev").ShouldBeFalse();
+            deployed.IsIn("production").ShouldBeTrue();
+
+            var insideOtherNetwork = AppEnv.In("other-dev") + AppEnv.In("production") + AppEnv.In("other-qa");
+
+            var deployedInsideOtherNetwork = insideOtherNetwork * deployed;
+            deployedInsideOtherNetwork.IsIn("production").ShouldBeTrue();
+            deployedInsideOtherNetwork.IsIn("other-qa").ShouldBeTrue();
+            deployedInsideOtherNetwork.IsIn("other-dev").ShouldBeFalse();
+
+            var notDeployedInOtherNetwork = !deployedInsideOtherNetwork;
+
+            notDeployedInOtherNetwork.IsIn("qa").ShouldBeTrue();
+
+        }
+
+        [Fact]
+        public void it_creates_all_app_env()
+        {
+            var sut = AppEnv.All;
+
+            sut.IsIn("a").ShouldBeTrue();
+            sut.IsIn("b").ShouldBeTrue();
+            sut.IsIn("c").ShouldBeTrue();
+            sut.IsIn("d").ShouldBeTrue();
+        }
+
     }
 }

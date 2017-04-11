@@ -2,4 +2,6 @@ source http://nuget.org/api/v2
 
 nuget FAKE 4.50.0
 nuget FAKE.Dotnet
-nuget xunit.runner.console 2.2.0-beta5-build3474
+nuget xunit.runner.console 2.2.0
+nuget NuGet.CommandLine 3.5.0
+nuget Steinpilz.DevFlow.Fake

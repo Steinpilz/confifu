@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <Description>Confifu is centralized configuration for the .NET platform, inspired by application config in Ruby on Rails</Description>
-    <VersionPrefix>2.0.0</VersionPrefix>
     <Authors>steinpilz;ivan.benko</Authors>
+    <VersionPrefix>2.1.1</VersionPrefix>
     <TargetFramework>netstandard1.0</TargetFramework>
     <AssemblyName>Confifu.Abstractions</AssemblyName>
     <PackageId>Confifu.Abstractions</PackageId>
