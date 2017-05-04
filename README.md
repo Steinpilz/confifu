@@ -2,7 +2,7 @@
 
 Confifu was created by inspiration of application configuration in Ruby On Rails. It provides a simple way to configure your .Net application or module for different environments. It's convention based and also provides simple abstractions to create libraries and loosely coupled modules on top of it.
 
-### Install
+## Install
 
 Confifu is distributed as 2 nuget packages:
 
@@ -16,7 +16,9 @@ Install-Package Confifu
 Install-Package Confifu.Abstractions
 ```
 
-### Abstractions
+## Abstractions
+
+### Core Abstractions
 
 ```Confifu.Abstractions``` contains main abstractions which are supposed to be a core of an application config
 
@@ -82,11 +84,28 @@ appConfig.AddAppRunnerAfter(runner);
 appConfig.AddAppRunnerBefore(runner);
 ```
 
-### Samples
+### Build new abstraction
+
+You can easy make your own abstractions on top of the Confifu.Abstractions which is supposed to be the central point of all configuration in your projects. Abstraction could be as simple as a convention like:
+
+By key "DebugOutput" it supposed to be set ```Action<string>``` which will write given string to Debug Output. So it could be used by every library which depends on Confifu.Abstractions (if it's set by the top level app of course).
+
+You should agree that it looks like classic **Dependency Injection** mechanism. But instead of focusing on **ServiceInterface**, **ServiceImplementation**, **Lifetime** -  ```IAppConfig``` is more generic. So **ServiceInterface** is **Key**, **ServiceImplementation and Lifetime** is **Object**. The problem with DI Containers that there are tons of them in .net world. If you make a library which uses DI container inside and exposes some services, we have to make a bridge for our consumers so they can take control of creating services and injecting some services from outside. In last days Microsoft solves that problem by introducing their own abstraction layer for dependency injection https://github.com/aspnet/DependencyInjection . For libraries authors it's easier now what to use, they can just register their library services in ```IServiceCollection``` and use ```IServiceProvider``` for resolving services. On the top level of the app consumer can decide which DI container to use.
+
+Microsoft's DependencyInjection abstractions are already integrated to Confifu  https://github.com/Steinpilz/confifu-dependencyinjection :
+
+```csharp
+appConfig.RegisterServices(serviceCollection => {
+	serviceCollection.AddTransient<IMyService, MyService>();
+});
+```
+
+Another useful and commonly used abstraction is logging: https://github.com/Steinpilz/confifu-logging
+
+### 
 
 
-
-### Usage in Application
+## Setup App
 
 Add new class inherited from `Confifu.AppSetup` which is going to setup your application:
 ```csharp
