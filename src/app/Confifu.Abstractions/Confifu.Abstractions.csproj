@@ -4,12 +4,11 @@
     <Description>Confifu is centralized configuration for the .NET platform, inspired by application config in Ruby on Rails</Description>
     <Authors>steinpilz;ivan.benko</Authors>
     <VersionPrefix>2.1.2</VersionPrefix>
-    <TargetFrameworks>netstandard1.0;net451</TargetFrameworks>
+    <TargetFrameworks>netstandard1.0;net451;netstandard2.0</TargetFrameworks>
     <AssemblyName>Confifu.Abstractions</AssemblyName>
     <PackageId>Confifu.Abstractions</PackageId>
     <PackageTags>confifu;configuration;.net</PackageTags>
     <PackageProjectUrl>https://github.com/steinpilz/confifu</PackageProjectUrl>
-    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
   </PropertyGroup>
 
 </Project>
