@@ -56,11 +56,13 @@ namespace Confifu
                     setupAction.Action();
             }
             
+            appConfig.GetPostSetupAction()?.Invoke();
+
             return this;
         }
 
         /// <summary>
-        /// Call AppRunner from curren IAppConfig
+        /// Call AppRunner from current IAppConfig
         /// </summary>
         /// <returns>current AppSetup instance</returns>
         public AppSetup Run()

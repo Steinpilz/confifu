@@ -16,6 +16,11 @@ namespace Confifu.Abstractions
         /// AppRunner predefined key
         /// </summary>
         public const string AppRunnerKey = "AppRunner";
+        
+        /// <summary>
+        /// AppPostSetup predefined key
+        /// </summary>
+        public const string AppPostSetupKey = "AppRunner";
 
         /// <summary>
         /// Get option from <para>appConfig</para>
@@ -150,6 +155,94 @@ namespace Confifu.Abstractions
             });
         }
 
+        /// <summary>
+        /// Get AppRunner from <para>appConfig</para> using AppRunner predefined key
+        /// </summary>
+        /// <param name="appConfig">AppConfig instance</param>
+        /// <returns>delegate of Action type, always not null</returns>
+        public static Action GetPostSetupAction(this IAppConfig appConfig)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+
+            return appConfig.Get<Action>(AppPostSetupKey) ?? (() => { });
+        }
+
+        /// <summary>
+        /// Set AppRunner to <para>appConfig</para> using AppRunner predefined key
+        /// </summary>
+        /// <param name="appConfig">AppConfig instance</param>
+        /// <param name="postSetupAction">AppPostSetup delegate</param>
+        public static void SetPostSetupAction(this IAppConfig appConfig, Action postSetupAction)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+
+            appConfig[AppPostSetupKey] = postSetupAction ?? throw new ArgumentNullException(nameof(postSetupAction));
+        }
+
+        /// <summary>
+        /// Set return by <para>wrapFunc</para> AppRunner to <para>appConfig</para> using AppRunner predefined key
+        /// <para>wrapFunc</para> has single parameter - current AppRunner (could be null)
+        /// </summary>
+        /// <param name="appConfig">AppConfig instance</param>
+        /// <param name="wrapFunc">WrapFunc delegate</param>
+        /// <returns>AppConfig instance passed to the method</returns>
+        public static IAppConfig WrapPostSetupAction(this IAppConfig appConfig, Func<Action, Action> wrapFunc)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+            if (wrapFunc == null) throw new ArgumentNullException(nameof(wrapFunc));
+
+            appConfig.SetPostSetupAction(wrapFunc(appConfig.GetPostSetupAction()));
+            return appConfig;
+        }
+
+        /// <summary>
+        /// Set AppRunner action to be executed after current AppRunner action
+        /// </summary>
+        /// <param name="appConfig">AppConfig instance</param>
+        /// <param name="appPostSetup">AppRunner delegate</param>
+        /// <returns>AppConfig instance passed to the method</returns>
+        public static IAppConfig AddPostSetupActionAfter(this IAppConfig appConfig, Action appPostSetup)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+            if (appPostSetup == null) throw new ArgumentNullException(nameof(appPostSetup));
+
+            return appConfig.WrapPostSetupAction(runner => () =>
+            {
+                // call existing post setup, and then ours
+                runner?.Invoke();
+                appPostSetup();
+            });
+        }
+
+        /// <summary>
+        /// Set AppRunner action to be executed after current AppRunner action
+        /// </summary>
+        /// <param name="appConfig">AppConfig instance</param>
+        /// <param name="appRunner">AppRunner delegate</param>
+        /// <returns>AppConfig instance passed to the method</returns>
+        public static IAppConfig AddPostSetupAction(this IAppConfig appConfig, Action appPostSetup)
+        {
+            return appConfig.AddPostSetupActionAfter(appPostSetup);
+        }
+
+        /// <summary>
+        /// Set AppRunner action to be executed before existing AppRunner action
+        /// </summary>
+        /// <param name="appConfig">AppConfig instance</param>
+        /// <param name="appPostSetup">AppRunner delegate</param>
+        /// <returns>AppConfig instance passed to the method</returns>
+        public static IAppConfig AddPostSetupActionBefore(this IAppConfig appConfig, Action appPostSetup)
+        {
+            if (appConfig == null) throw new ArgumentNullException(nameof(appConfig));
+            if (appPostSetup == null) throw new ArgumentNullException(nameof(appPostSetup));
+            return appConfig.WrapPostSetupAction(runner => () =>
+            {
+                // call our runner, and then existing
+                appPostSetup();
+                runner?.Invoke();
+            });
+        }
+        
         /// <summary>
         /// Returns new IAppConfig instance, which will prefix all option accessors with
         /// a given <para>prefix</para>
