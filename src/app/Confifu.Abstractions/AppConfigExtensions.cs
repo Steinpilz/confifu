@@ -20,7 +20,7 @@ namespace Confifu.Abstractions
         /// <summary>
         /// AppPostSetup predefined key
         /// </summary>
-        public const string AppPostSetupKey = "AppRunner";
+        public const string AppPostSetupKey = "AppPostSetup";
 
         /// <summary>
         /// Get option from <para>appConfig</para>
