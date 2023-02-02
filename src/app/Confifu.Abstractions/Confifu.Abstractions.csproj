@@ -9,6 +9,7 @@
     <PackageId>Confifu.Abstractions</PackageId>
     <PackageTags>confifu;configuration;.net</PackageTags>
     <PackageProjectUrl>https://github.com/steinpilz/confifu</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 </Project>
