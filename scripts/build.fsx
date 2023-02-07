@@ -1,6 +1,11 @@
 #r "paket:
-framework: netstandard20
+framework: net6.0
+nuget FSharp.Core 6.0.3
 nuget Steinpilz.DevFlow.Fake5 prerelease
+nuget Microsoft.Build 17.3.2
+nuget Microsoft.Build.Framework 17.3.2
+nuget Microsoft.Build.Tasks.Core 17.3.2
+nuget Microsoft.Build.Utilities.Core 17.3.2
 //"
 
 open Fake.Core
